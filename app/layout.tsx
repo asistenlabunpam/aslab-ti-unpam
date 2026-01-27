@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Header } from "@/components/header";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Footer } from "@/components/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -48,6 +49,7 @@ export default function RootLayout({
           <main id="main" className="w-full bg-transparent min-w-1 max-w-none">
             {children}
           </main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
