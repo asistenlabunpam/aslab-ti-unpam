@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { Header } from "@/components/header";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,13 +26,29 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className="scroll-smooth overflow-y-auto" suppressHydrationWarning>
+    <html
+      lang="id"
+      className="scroll-smooth overflow-y-auto"
+      suppressHydrationWarning
+    >
       <body
-        className={cn(geistSans.variable, geistMono.variable, "font-sans antialiased w-full bg-base-50 overflow-x-hidden")}
+        className={cn(
+          geistSans.variable,
+          geistMono.variable,
+          "font-sans antialiased w-full bg-base-50 overflow-x-hidden",
+        )}
       >
-        <main id="main" className="w-full bg-transparent min-w-1 max-w-none">
-          {children}
-        </main>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header />
+          <main id="main" className="w-full bg-transparent min-w-1 max-w-none">
+            {children}
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   );
