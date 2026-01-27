@@ -1,9 +1,12 @@
 import { Container } from "@/components/container";
+import { Figure } from "@/components/figure";
 import { SectionHeader } from "@/components/heading";
 import { Button } from "@/components/ui/button";
 import { CourseCard } from "@/components/ui/course-card";
 import { RoomCard } from "@/components/ui/room-card";
-import { courses, rooms } from "@/constants";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { activities, courses, rooms } from "@/constants";
+import { ActivityItem } from "@/types";
 import { ArrowUpRight, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -252,6 +255,60 @@ function Laboratory() {
   );
 }
 
+function ActivityGrid({ items }: { items: ActivityItem[] }) {
+  if (!items.length) {
+    return (
+      <p className="mt-10 text-center text-sm text-muted-foreground">
+        Belum ada aktivitas
+      </p>
+    );
+  }
+
+  return (
+    <div className="mt-10 grid grid-cols-1 gap-x-5 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+      {items.map((item) => (
+        <Figure
+          key={item.src}
+          image={item.src}
+          imageWrapperClassName="aspect-video"
+          imageProps={{ fill: true }}
+          caption={item.caption}
+        />
+      ))}
+    </div>
+  );
+}
+
+function Activity() {
+  return (
+    <Container as="section" className="mx-auto">
+      <Tabs defaultValue="semua">
+        <TabsList variant="line" className="mx-auto">
+          <TabsTrigger value="semua">Semua</TabsTrigger>
+          <TabsTrigger value="kegiatan">Kegiatan</TabsTrigger>
+          <TabsTrigger value="asistensi">Asistensi</TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="semua">
+          <ActivityGrid items={activities} />
+        </TabsContent>
+
+        <TabsContent value="kegiatan">
+          <ActivityGrid
+            items={activities.filter((item) => item.category === "kegiatan")}
+          />
+        </TabsContent>
+
+        <TabsContent value="asistensi">
+          <ActivityGrid
+            items={activities.filter((item) => item.category === "asistensi")}
+          />
+        </TabsContent>
+      </Tabs>
+    </Container>
+  );
+}
+
 export default function Home() {
   return (
     <>
@@ -274,6 +331,15 @@ export default function Home() {
           description="Daftar mata kuliah berbasis praktikum yang dirancang untuk menyelaraskan teori akademik dengan implementasi teknologi terkini di industri."
         />
         <Course />
+      </Container>
+
+      <Container as="div" className="space-y-12 px-4 sm:px-6 lg:px-8 lg:py-10">
+        <SectionHeader
+          eyebrow="Aktivitas Lab"
+          title="Kegiatan & Dokumentasi"
+          description="Potret kesibukan mahasiswa dalam mengeksplorasi teknologi, mulai dari sesi praktikum terjadwal hingga kolaborasi riset dan pengembangan inovasi digital."
+        />
+        <Activity />
       </Container>
 
       <Container as="div" className="space-y-12 px-4 sm:px-6 lg:px-8 lg:py-10">
