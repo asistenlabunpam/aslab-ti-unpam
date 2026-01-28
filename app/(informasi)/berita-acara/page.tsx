@@ -17,12 +17,11 @@ export default async function Page() {
         eyebrow="Arsip Dokumentasi"
         title="Berita Acara Kegiatan"
         description="Memuat berita acara seluruh kegiatan yang dilaksanakan oleh Asisten Laboratorium Teknik Informatika Universitas Pamulang"
-        className="mt-24"
       />
 
       <Container as="section" className="px-4 mb-10 pb-16 sm:px-6 py-8 lg:px-8">
         {recentPosts.length === 0 ? (
-          <div className="text-center py-8 text-gray-500">
+          <div className="text-center py-8 text-base-foreground-400">
             Belum ada artikel
           </div>
         ) : (
