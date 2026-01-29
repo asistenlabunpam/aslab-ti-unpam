@@ -26,12 +26,16 @@ export function ImageDialog({
       <Button
         variant="ghost"
         onClick={() => setOpen(true)}
-        className={cn("relative aspect-video size-full overflow-hidden p-0! rounded-lg", thumbnailClassName)}
+        className={cn(
+          "relative aspect-video size-full overflow-hidden p-0! rounded-lg",
+          thumbnailClassName,
+        )}
       >
         <Image
           src={src}
           alt={alt}
           fill
+          loading="lazy"
           className="object-cover"
         />
       </Button>
@@ -55,22 +59,22 @@ export function ImageDialog({
                 onClick={(e) => e.stopPropagation()}
               >
                 <Button
-                size="icon-lg"
-                onClick={() => setOpen(false)}
-                className="absolute top-6 right-6 z-50 rounded-full"
-              >
-                <X />
-              </Button>
+                  size="icon-lg"
+                  onClick={() => setOpen(false)}
+                  className="absolute top-6 right-6 z-50 rounded-full"
+                >
+                  <X />
+                </Button>
 
-              <div className="relative aspect-video w-full max-w-3xl overflow-hidden rounded-xl lg:max-w-4xl">
-                <Image
-                  src={src}
-                  alt={alt}
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </div>
+                <div className="relative aspect-video w-full max-w-3xl overflow-hidden rounded-xl lg:max-w-4xl">
+                  <Image
+                    src={src}
+                    alt={alt}
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
               </motion.div>
             </motion.div>
           </Portal>

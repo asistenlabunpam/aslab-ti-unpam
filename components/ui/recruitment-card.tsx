@@ -40,6 +40,7 @@ export function RecruitmentCard({
           alt={name}
           src={poster}
           fill
+          loading="lazy"
           className="object-cover"
         />
       </div>
@@ -96,6 +97,7 @@ export function RecruitmentCard({
                     alt={name}
                     src={poster}
                     fill
+                    loading="lazy"
                     className="object-cover"
                   />
                 </div>

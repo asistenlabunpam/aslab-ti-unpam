@@ -17,6 +17,7 @@ export function RoomCard({
             src={image || ""}
             alt={`Gambar utama ruang laboratorium ${number}`}
             fill
+            loading="lazy"
             className="pointer-events-none object-cover"
           />
         </div>
