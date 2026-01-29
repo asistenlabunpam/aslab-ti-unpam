@@ -2,6 +2,7 @@ import { HTMLAttributes, ReactNode } from "react";
 import Image, { ImageProps } from "next/image";
 import { Info } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { ImageDialog } from "./ui/image-dialog";
 
 interface FigureProps extends HTMLAttributes<HTMLElement> {
   image: string;
@@ -34,11 +35,9 @@ export function Figure({
           imageWrapperClassName
         )}
       >
-        <Image
+        <ImageDialog
           src={image}
           alt={imageAlt || (typeof caption === "string" ? caption : "")}
-          className="object-cover"
-          {...imageProps}
         />
       </div>
 
