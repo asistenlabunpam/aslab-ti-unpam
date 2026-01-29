@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "./button";
+import { Portal } from "../portal";
 
 interface ImageDialogProps {
   src: string;
@@ -37,22 +38,23 @@ export function ImageDialog({
 
       <AnimatePresence>
         {open && (
-          <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-static-950/80 backdrop-blur-md"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setOpen(false)}
-          >
+          <Portal>
             <motion.div
-              className="relative size-full flex items-center justify-center p-6"
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              transition={{ duration: 0.25 }}
-              onClick={(e) => e.stopPropagation()}
+              className="fixed inset-0 z-9999 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setOpen(false)}
             >
-              <Button
+              <motion.div
+                className="relative w-full h-full flex items-center justify-center p-6"
+                initial={{ scale: 0.95, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.95, opacity: 0 }}
+                transition={{ duration: 0.25 }}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <Button
                 size="icon-lg"
                 onClick={() => setOpen(false)}
                 className="absolute top-6 right-6 z-50 rounded-full"
@@ -69,8 +71,9 @@ export function ImageDialog({
                   priority
                 />
               </div>
+              </motion.div>
             </motion.div>
-          </motion.div>
+          </Portal>
         )}
       </AnimatePresence>
     </>
