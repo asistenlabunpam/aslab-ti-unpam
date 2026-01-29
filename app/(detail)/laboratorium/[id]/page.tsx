@@ -3,7 +3,6 @@
 import { useParams } from "next/navigation";
 import {
   Camera,
-  CircleQuestionMark,
   LayoutList,
   MapPin,
   TriangleAlert,
@@ -17,12 +16,6 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { rooms } from "@/constants";
 import { Figure } from "@/components/figure";
 import { ImageDialog } from "@/components/ui/image-dialog";
