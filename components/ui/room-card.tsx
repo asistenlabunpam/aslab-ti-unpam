@@ -1,6 +1,7 @@
 import { Room } from "@/types";
 import { MapPin } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export function RoomCard({
   number,
@@ -19,9 +20,9 @@ export function RoomCard({
             className="pointer-events-none object-cover"
           />
         </div>
-        <button type="button" className="absolute inset-0 focus:outline-hidden">
+        <Link href={`/laboratorium/${number}`} className="absolute inset-0 focus:outline-hidden">
           <span className="sr-only">Lihat detail laboratorium {number}</span>
-        </button>
+        </Link>
       </div>
 
       <div className="w-full mt-3 space-y-1.5">
