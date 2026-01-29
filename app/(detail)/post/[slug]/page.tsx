@@ -13,6 +13,7 @@ import Link from "next/link";
 import { ArrowRight, CalendarDays, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
 
 type Params = Promise<{ slug: string }>;
 
@@ -179,17 +180,24 @@ export default async function Content({
           </div>
         </header>
 
-        <div className="size-full space-y-16 mt-5">
-          <div className="text-base/7 blog-content" dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
-       
-          <footer className="w-full py-7">
-          <h5 className="text-base/7 font-semibold">Tags</h5>
-          <div className="flex flex-wrap gap-x-2 gap-y-1.5 my-2">
-            {tags.map((tag) => (
-              <Badge key={tag} variant="outline" className="capitalize">{tag}</Badge>
-            ))}
-          </div>
-        </footer>
+        <div className="size-full space-y-10 mt-5">
+          <div
+            className="text-base/7 blog-content"
+            dangerouslySetInnerHTML={{ __html: post.content.rendered }}
+          />
+
+          <Separator />
+
+          <footer className="w-full">
+            <h5 className="text-base/7 font-semibold">Tags</h5>
+            <div className="flex flex-wrap gap-x-2 gap-y-1.5 my-2">
+              {tags.map((tag) => (
+                <Badge key={tag} variant="outline" className="capitalize">
+                  {tag}
+                </Badge>
+              ))}
+            </div>
+          </footer>
         </div>
       </Container>
 
