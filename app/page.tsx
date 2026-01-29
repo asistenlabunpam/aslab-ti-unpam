@@ -173,9 +173,9 @@ function About() {
 
       <Container
         as="section"
-        className="flow-root space-y-10 my-8 py-8 w-full max-w-3xl"
+        className="flow-root space-y-6 my-8 py-8 w-full max-w-3xl"
       >
-        <div className="bg-base-50 space-y-5 h-max">
+        <div className="bg-base-50 space-y-5 p-6 h-max border border-base-200 rounded-2xl">
           <h3 className="scroll-m-20 text-2xl text-base-foreground-200 font-semibold tracking-tight">
             Visi Kami
           </h3>
@@ -185,7 +185,7 @@ function About() {
             guna mendorong kemajuan belajar dan inovasi di lingkungan kampus.
           </p>
         </div>
-        <div className="bg-base-50 space-y-5 h-max">
+        <div className="bg-base-50 space-y-5 p-6 h-max border border-base-200 rounded-2xl">
           <h3 className="scroll-m-20 text-2xl text-base-foreground-200 font-semibold tracking-tight">
             Misi Kami
           </h3>
