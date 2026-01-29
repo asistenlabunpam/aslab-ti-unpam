@@ -40,13 +40,13 @@ export default function AsistenLab() {
                 }`}
               >
                 <p className="text-sm">{aslab.anggota.length} Anggota</p>
-                <time className="block text-xl">ASLAB {aslab.date}</time>
+                <p className="block text-xl">ASLAB {aslab.date}</p>
               </button>
             </div>
           ))}
         </div>
 
-        <div className="grid grid-cols-1 gap-x-5 gap-y-8 sm:grid-cols-2 md:grid-cols-3 lg:col-span-3">
+        <div className="grid grid-cols-1 gap-x-5 gap-y-8 px-4 sm:px-6 lg:px-8 sm:grid-cols-2 md:grid-cols-3 lg:col-span-3">
           {member[activeTab].anggota
             .toSorted((a, b) => a.name.localeCompare(b.name))
             .map((person) => (
