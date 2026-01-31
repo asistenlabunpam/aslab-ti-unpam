@@ -33,7 +33,7 @@ export function HeroContent() {
       </a>
 
       <h1 className="text-5xl font-semibold tracking-tight text-base-foreground-100 max-w-2xl lg:text-6xl lg:max-w-none">
-        ASLAB TI{" "}
+        Asisten Lab <br />
         <span className="text-base-foreground-300">Universitas Pamulang</span>
       </h1>
 
@@ -60,11 +60,11 @@ export function HeroContent() {
         </Button>
       </div>
 
-      <div className="relative group flex items-center gap-x-3.5 w-max mt-12">
+      <div className="relative group flex items-center gap-x-4 w-max mt-12">
         <div className="flex items-center -space-x-2.5 group-hover:-space-x-1.5">
           {member[0].anggota.slice(0, 5).map((member) => (
             <div key={member.name}>
-              <div className="relative size-7 aspect-square overflow-hidden rounded-full outline-2 outline-base-200">
+              <div className="relative size-7 aspect-square overflow-hidden rounded-full outline-2 outline-base-50">
                 <Image
                   src={member.image}
                   alt={member.name}
