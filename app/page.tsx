@@ -50,7 +50,7 @@ export default function Home() {
       <Container as="div" aria-label="Laboratory section" className="space-y-12 px-4 py-14 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="Fasilitas Unggulan"
-          title="Ruang Laboratorium Terpadu"
+          title="Ruang Laboratorium"
           description="Eksplorasi berbagai ruang laboratorium spesifik yang dilengkapi dengan infrastruktur mutakhir untuk mendukung kegiatan praktikum, riset, dan inovasi mahasiswa."
         />
         <LaboratoryGrid />

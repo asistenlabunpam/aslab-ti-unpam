@@ -6,7 +6,7 @@ export function LaboratoryGrid() {
   return (
     <Container
       as="section"
-      className="grid grid-cols-1 px-4 gap-x-5 gap-y-10 sm:grid-cols-2 lg:grid-cols-3"
+      className="grid grid-cols-1 px-4 gap-x-5 gap-y-10 py-2 sm:grid-cols-2 lg:grid-cols-3"
     >
       {rooms.map((room) => (
         <RoomCard
