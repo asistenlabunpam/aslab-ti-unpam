@@ -10,15 +10,15 @@ export function CourseCard({
   return (
     <div className="size-full p-6 bg-base-50 border border-base-200 rounded-2xl">
       <div className="flex justify-between items-center w-full">
-        <span className="inline-flex items-center rounded-full bg-orange-50 size-14 p-3 text-orange-700 inset-ring inset-ring-orange-600/10 dark:bg-orange-400/10 dark:text-orange-400 dark:inset-ring-orange-400/20">
+        <span className="inline-flex items-center rounded-full bg-blue-50 size-14 p-3 text-blue-700 inset-ring inset-ring-blue-600/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/20">
           <Icon className="size-full" />
         </span>
 
         <div className="flex flex-col items-end gap-y-1">
-          <span className="inline-flex items-center rounded-full bg-amber-50 px-2 py-1 text-xs font-medium text-amber-700 inset-ring inset-ring-amber-600/20 dark:bg-amber-400/10 dark:text-amber-400 dark:inset-ring-amber-500/20">
+          <span className="inline-flex items-center rounded-full bg-sky-50 px-2 py-1 text-xs font-medium text-sky-700 inset-ring inset-ring-sky-600/20 dark:bg-sky-400/10 dark:text-sky-400 dark:inset-ring-sky-500/20">
             Semester {semester}
           </span>
-          <span className="inline-flex items-center rounded-full bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-700 inset-ring inset-ring-yellow-700/10 dark:bg-yellow-400/10 dark:text-yellow-400 dark:inset-ring-yellow-400/30">
+          <span className="inline-flex items-center rounded-full bg-cyan-50 px-2 py-1 text-xs font-medium text-cyan-700 inset-ring inset-ring-cyan-700/10 dark:bg-cyan-400/10 dark:text-cyan-400 dark:inset-ring-cyan-400/30">
             SKS {sks}
           </span>
         </div>
