@@ -20,7 +20,7 @@ export default function Home() {
         <HeroGallery />
       </Container>
 
-      <Container as="div" aria-label="About section" className="px-4 py-14 sm:px-6 lg:px-8">
+      <Container as="div" id="about" aria-label="About section" className="px-4 py-14 sm:px-6 lg:px-8">
         <AboutSection />
       </Container>
 

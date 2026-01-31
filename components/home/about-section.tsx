@@ -1,7 +1,5 @@
 import { Container } from "@/components/container";
-import { VISION_MISSION } from "@/constants/home";
-import { courses, rooms } from "@/constants";
-import { member } from "@/constants/anggota";
+import { courses, member, rooms, VISION_MISSION } from "@/constants";
 
 export function AboutSection() {
   const stats = [

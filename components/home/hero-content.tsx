@@ -45,7 +45,7 @@ export function HeroContent() {
 
       <div className="mt-10 flex items-center gap-x-4">
         <Button size="lg" className="rounded-full" asChild>
-          <Link href="#tentang">Tentang ASLAB</Link>
+          <Link href="#about">Tentang ASLAB</Link>
         </Button>
 
         <Button
