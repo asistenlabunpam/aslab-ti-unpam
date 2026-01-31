@@ -85,10 +85,10 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="flex flex-col gap-3 border-t border-base-200 py-3 text-sm text-base-foreground-400 md:flex-row md:items-center md:justify-between">
+      <div className="flex flex-col gap-y-6 border-t border-base-200 py-3 text-sm text-base-foreground-400 md:flex-row md:gap-y-0 md:items-center md:justify-between">
         <p className="text-center order-2 md:-order-1 md:text-start">&copy; {new Date().getFullYear()} ASLAB TI. All rights reserved.</p>
 
-        <div className="flex justify-center items-center gap-4 md:justify-start">
+        <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-px md:justify-start">
           <FooterLink href="https://unpam.ac.id">unpam.ac.id</FooterLink>
           <FooterLink href="https://informatika.unpam.ac.id">
             informatika.unpam.ac.id
@@ -102,7 +102,7 @@ export function Footer() {
 
 function SocialButton({ href, children }: { href: string, children: React.ReactNode }) {
   return (
-    <Button variant="outline" size="icon-lg" className="rounded-full p-2" asChild>
+    <Button variant="outline" size="icon" className="rounded-full p-2" asChild>
       <Link href={href} target="_blank" rel="noopener noreferrer">{children}</Link>
     </Button>
   );
