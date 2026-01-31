@@ -34,19 +34,19 @@ export function RecruitmentCard({
   dialog,
 }: Readonly<RecruitmentCardProps>) {
   return (
-    <div className="relative">
+    <div className="relative group">
       <div className="relative aspect-4/5 overflow-hidden rounded-lg">
         <Image
           alt={name}
           src={poster}
           fill
           loading="lazy"
-          className="object-cover"
+          className="object-cover group-hover:opacity-75 group-hover:scale-105"
         />
       </div>
 
       <div className="relative mt-4">
-        <h3 className="text-xl font-semibold tracking-tight text-base-foreground-100">
+        <h3 className="text-xl font-semibold tracking-tight text-base-foreground-100 group-hover:underline">
           {name}
         </h3>
 
@@ -74,11 +74,8 @@ export function RecruitmentCard({
       {dialog && (
         <div className="mt-3 w-full">
           <Dialog>
-            <DialogTrigger asChild>
-              <Button size="lg" className="w-full">
-                <Info />
-                {dialog.ctaLabel ?? "Daftar Sekarang"}
-              </Button>
+            <DialogTrigger className="absolute inset-0">
+              <p hidden>{dialog.ctaLabel ?? "Daftar Sekarang"}</p>
             </DialogTrigger>
 
             <DialogContent>
