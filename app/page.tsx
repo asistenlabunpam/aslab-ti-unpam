@@ -7,6 +7,7 @@ import { CourseGrid } from "@/components/home/course-grid";
 import { ActivitySection } from "@/components/home/activity-section";
 import { LaboratoryGrid } from "@/components/home/laboratory-grid";
 import { ContactSection } from "@/components/home/contact-section";
+import { StatsSection } from "@/components/home/stats-section";
 
 export default function Home() {
   return (
@@ -18,6 +19,10 @@ export default function Home() {
       >
         <HeroContent />
         <HeroGallery />
+      </Container>
+
+      <Container as="div" aria-label="Stats section" className="px-4 py-14 sm:px-6 lg:px-8">
+        <StatsSection />
       </Container>
 
       <Container as="div" id="about" aria-label="About section" className="px-4 py-14 sm:px-6 lg:px-8">
