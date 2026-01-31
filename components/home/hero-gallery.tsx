@@ -7,7 +7,7 @@ export function HeroGallery() {
   return (
     <Container
       as="section"
-      className="grid w-full grid-cols-2 gap-2 my-10 py-10 lg:p-12"
+      className="grid w-full grid-cols-2 gap-2 my-10 py-10 lg:p-13"
     >
       {HERO_IMAGES.map((img, index) => (
         <div
