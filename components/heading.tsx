@@ -31,7 +31,7 @@ export function SectionHeader({
         )}
       >
         {eyebrow && (
-          <p className="text-base/7 font-semibold text-orange-600 dark:text-orange-400">
+          <p className="text-base/7 font-semibold text-transparent bg-clip-text bg-linear-to-r from-sky-500 to-blue-500">
             {eyebrow}
           </p>
         )}
@@ -41,7 +41,7 @@ export function SectionHeader({
         </h2>
 
         {description && (
-          <p className="text-base/7 font-medium text-pretty text-base-foreground-300 sm:text-lg/8">
+          <p className="text-base/7 text-pretty text-base-foreground-400">
             {description}
           </p>
         )}
