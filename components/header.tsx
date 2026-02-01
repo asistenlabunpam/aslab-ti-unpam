@@ -18,10 +18,7 @@ import {
 } from "@/components/ui/command";
 import { useState, useMemo } from "react";
 import { Separator } from "./ui/separator";
-import {
-  MAIN_NAVIGATION,
-  flattenNavigationItems,
-} from "@/constants/navigation";
+import { flattenNavigationItems } from "@/constants";
 
 export function Header() {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
