@@ -132,7 +132,7 @@ export function Header() {
 
 function Logo() {
   return (
-    <Link href="/" className="relative w-28 h-6 shrink-0 sm:h-7 md:h-8">
+    <Link href="/" className="relative w-28 h-7 shrink-0 md:h-8">
       <Image
         src="/logo.svg"
         alt="Logo Asisten Laboratorium Universitas Pamulang"
