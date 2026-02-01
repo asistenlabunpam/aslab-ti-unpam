@@ -7,7 +7,6 @@ import { CourseGrid } from "@/components/home/course-grid";
 import { ActivitySection } from "@/components/home/activity-section";
 import { LaboratoryGrid } from "@/components/home/laboratory-grid";
 import { ContactSection } from "@/components/home/contact-section";
-import { StatsSection } from "@/components/home/stats-section";
 import { Card } from "@/components/ui/post-card";
 import { SearchAlert } from "lucide-react";
 import { Post } from "@/types";
@@ -25,18 +24,10 @@ export default async function Home() {
       <Container
         as="div"
         aria-label="Hero secction"
-        className="relative px-4 py-24 grid grid-cols-1 place-items-center sm:px-6 sm:py-20 lg:grid-cols-2 lg:px-8 lg:py-5"
+        className="relative mt-14 px-4 py-10 grid grid-cols-1 place-items-center sm:px-6 sm:py-20 lg:grid-cols-2 lg:px-8 lg:mt-6 lg:py-5"
       >
         <HeroContent />
         <HeroGallery />
-      </Container>
-
-      <Container
-        as="div"
-        aria-label="Stats section"
-        className="px-4 py-14 sm:px-6 lg:px-8"
-      >
-        <StatsSection />
       </Container>
 
       <Container
