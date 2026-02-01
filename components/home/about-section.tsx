@@ -42,7 +42,7 @@ export function AboutSection() {
         </div>
 
         <div className="lg:flex lg:flex-auto lg:justify-center">
-          <dl className="flex items-center gap-x-10 gap-y-8 w-full lg:flex-col lg:items-start lg:w-64 xl:w-80">
+          <dl className="flex flex-wrap items-center gap-x-10 gap-y-8 w-full lg:flex-col lg:items-start lg:w-64 xl:w-80">
             {stats.map((stat) => (
               <div
                 key={stat.label}
@@ -77,11 +77,16 @@ export function AboutSection() {
           <h3 className="scroll-m-20 text-2xl text-base-foreground-200 font-semibold tracking-tight">
             {VISION_MISSION.mission.title}
           </h3>
-          <ol className="list-decimal text-base/7 text-base-foreground-400 ml-6 [&>li]:mt-2">
-            {VISION_MISSION.mission.items.map((item, idx) => (
-              <li key={idx}>{item}</li>
+          <ul className="text-base/7 text-base-foreground-400 ml-6 [&>li]:mt-2">
+            {VISION_MISSION.mission.items.map((item, index) => (
+              <li key={item} className="flex gap-x-3">
+                <span className="shrink-0 inline-flex justify-center items-center mt-1.5 size-4 rounded-full bg-static-50 text-[0.5rem] font-medium text-static-600 ring-1 ring-inset ring-static-500/10 dark:bg-static-400/10 dark:text-static-400 dark:ring-static-400/20">
+                  {index + 1}
+                </span>
+                <p>{item}</p>
+              </li>
             ))}
-          </ol>
+          </ul>
         </div>
       </Container>
     </>
