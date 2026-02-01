@@ -99,7 +99,7 @@ export default async function Home() {
             </div>
           ) : (
             <div className="grid grid-cols-1 gap-x-5 gap-y-8 my-8 py-8 sm:grid-cols-2 lg:grid-cols-3">
-              {recentPosts.map((post) => (
+              {recentPosts.slice(0, 3).map((post) => (
                 <Card
                   key={post.id}
                   featuredImage={post._embedded?.["wp:featuredmedia"]?.[0]}
