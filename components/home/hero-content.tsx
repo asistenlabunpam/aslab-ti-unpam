@@ -1,8 +1,6 @@
 import { Container } from "@/components/container";
 import { Button } from "@/components/ui/button";
-import { member } from "@/constants/anggota";
-import { ArrowRight, ChevronRight } from "lucide-react";
-import Image from "next/image";
+import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 
 export function HeroContent() {
@@ -32,7 +30,7 @@ export function HeroContent() {
         <ChevronRight className="group-hover:translate-x-1 ml-1.5 size-3.5 transition-transform" />
       </a>
 
-      <h1 className="text-5xl font-semibold tracking-tight text-base-foreground-100 max-w-2xl lg:text-6xl lg:max-w-none">
+      <h1 className="text-6xl font-semibold tracking-tight text-base-foreground-100 max-w-2xl lg:max-w-none">
         Asisten Lab <br />
         <span className="text-base-foreground-300">Universitas Pamulang</span>
       </h1>
@@ -58,32 +56,6 @@ export function HeroContent() {
             Mata Kuliah <ChevronRight className="size-3 group-hover:translate-x-1" />
           </Link>
         </Button>
-      </div>
-
-      <div className="relative group flex items-center gap-x-4 w-max mt-12">
-        <div className="flex items-center -space-x-2.5 group-hover:-space-x-1.5">
-          {member[0].anggota.slice(0, 5).map((member) => (
-            <div key={member.name}>
-              <div className="relative size-7 aspect-square overflow-hidden rounded-full outline-2 outline-base-50">
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <Link href="/asisten-laboratorium" className="absolute inset-0">
-          <span hidden>Lihat asisten lab</span>
-        </Link>
-
-        <div className="flex items-center gap-x-2 text-sm/6 text-base-foreground-400 group-hover:text-base-foreground-500">
-          <p>Lihat {member.flatMap((item) => item.anggota).length} Asisten Lab</p>
-          <ArrowRight className="size-3 group-hover:translate-x-1" />
-        </div>
       </div>
     </Container>
   );
