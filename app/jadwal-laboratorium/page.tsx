@@ -4,14 +4,15 @@ import { Info } from "lucide-react";
 
 export default function Page() {
   return (
-    <Container as="div" className="w-full max-w-5xl mx-auto space-y-10 py-5">
+    <Container as="div" className="w-full max-w-5xl mx-auto space-y-10 py-5 my-16">
       <SectionHeader
         eyebrow="Penjadwalan"
         title="Jadwal Asisten Laboratorium"
         description="Informasi lengkap jadwal operasional dan tugas asisten di Lab Universitas Pamulang untuk kelas Reguler."
-        className="mt-16"
+        className="py-8"
       />
-      <Container as="section" className="w-full">
+
+      <Container as="section" className="w-full py-8">
         <iframe
           data-testid="embed-iframe"
           src={`${process.env.NEXT_PUBLIC_JADWAL}/pubhtml?widget=true&amp;headers=false&chrome=false`}
