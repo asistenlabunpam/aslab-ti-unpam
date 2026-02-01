@@ -54,3 +54,17 @@ export function convertEncode(text: string): string {
 
   return convertedText;
 }
+
+export function operational() {
+  const now = new Date();
+  const currentHour = now.getHours();
+  const currentMinute = now.getMinutes();
+  const startHour = 11;
+  const startMinute = 0;
+  const endHour = 23;
+  const endMinute = 0;
+  const currentTime = currentHour * 60 + currentMinute;
+  const startTime = startHour * 60 + startMinute;
+  const endTime = endHour * 60 + endMinute;
+  return currentTime >= startTime && currentTime <= endTime;
+}
