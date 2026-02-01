@@ -65,7 +65,7 @@ export function Header() {
             className="w-fit rounded-full"
           >
             <SearchIcon className="size-3.5" />
-            Cari
+            Cari...
           </Button>
           <CommandDialog open={openCommand} onOpenChange={setOpenCommand}>
             <Command>
@@ -80,7 +80,10 @@ export function Header() {
                   <CommandGroup key={category} heading={category}>
                     {items.map((item) => (
                       <CommandItem key={item.href} asChild>
-                        <Link href={item.href}>
+                        <Link
+                          href={item.href}
+                          onClick={() => setOpenCommand(false)}
+                        >
                           <div className="flex flex-col">
                             <span>{item.title}</span>
                             {item.description && (
