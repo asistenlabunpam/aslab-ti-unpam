@@ -8,8 +8,18 @@ import { ActivitySection } from "@/components/home/activity-section";
 import { LaboratoryGrid } from "@/components/home/laboratory-grid";
 import { ContactSection } from "@/components/home/contact-section";
 import { StatsSection } from "@/components/home/stats-section";
+import { Card } from "@/components/ui/post-card";
+import { SearchAlert } from "lucide-react";
+import { Post } from "@/types";
+import { wordPressService } from "@/services/wordpress";
 
-export default function Home() {
+async function getRecentPosts(): Promise<Post[]> {
+  return await wordPressService.getPosts<Post>();
+}
+
+export default async function Home() {
+  const recentPosts = await getRecentPosts();
+
   return (
     <>
       <Container
@@ -21,15 +31,28 @@ export default function Home() {
         <HeroGallery />
       </Container>
 
-      <Container as="div" aria-label="Stats section" className="px-4 py-14 sm:px-6 lg:px-8">
+      <Container
+        as="div"
+        aria-label="Stats section"
+        className="px-4 py-14 sm:px-6 lg:px-8"
+      >
         <StatsSection />
       </Container>
 
-      <Container as="div" id="about" aria-label="About section" className="px-4 py-14 sm:px-6 lg:px-8">
+      <Container
+        as="div"
+        id="about"
+        aria-label="About section"
+        className="px-4 py-14 sm:px-6 lg:px-8"
+      >
         <AboutSection />
       </Container>
 
-      <Container as="div" aria-label="Course section" className="space-y-12 px-4 py-14 sm:px-6 lg:px-8">
+      <Container
+        as="div"
+        aria-label="Course section"
+        className="space-y-12 px-4 py-14 sm:px-6 lg:px-8"
+      >
         <SectionHeader
           eyebrow="Kurikulum Praktikum"
           title="Mata Kuliah Laboratorium"
@@ -38,7 +61,11 @@ export default function Home() {
         <CourseGrid />
       </Container>
 
-      <Container as="div" aria-label="Activity section" className="space-y-12 px-4 py-14 sm:px-6 lg:px-8">
+      <Container
+        as="div"
+        aria-label="Activity section"
+        className="space-y-12 px-4 py-14 sm:px-6 lg:px-8"
+      >
         <SectionHeader
           eyebrow="Aktivitas Lab"
           title="Kegiatan & Dokumentasi"
@@ -47,13 +74,52 @@ export default function Home() {
         <ActivitySection />
       </Container>
 
-      <Container as="div" aria-label="Laboratory section" className="space-y-12 px-4 py-14 sm:px-6 lg:px-8">
+      <Container
+        as="div"
+        aria-label="Laboratory section"
+        className="space-y-12 px-4 py-14 sm:px-6 lg:px-8"
+      >
         <SectionHeader
           eyebrow="Fasilitas Unggulan"
           title="Ruang Laboratorium"
           description="Eksplorasi berbagai ruang laboratorium spesifik yang dilengkapi dengan infrastruktur mutakhir untuk mendukung kegiatan praktikum, riset, dan inovasi mahasiswa."
         />
         <LaboratoryGrid />
+      </Container>
+
+      <Container as="div">
+        <SectionHeader
+          eyebrow="Arsip Dokumentasi"
+          title="Berita Acara Kegiatan"
+          description="Memuat berita acara seluruh kegiatan yang dilaksanakan oleh Asisten Laboratorium Teknik Informatika Universitas Pamulang"
+          className="mt-24"
+        />
+
+        <Container
+          as="section"
+          className="px-4 mb-10 pb-16 sm:px-6 py-8 lg:px-8"
+        >
+          {recentPosts.length === 0 ? (
+            <div className="text-center py-8 w-full space-y-6">
+              <SearchAlert className="size-20 text-base-foreground-300 mx-auto" />
+              <p className="text-base-foreground-400 font-medium">
+                Belum ada berita acara
+              </p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 gap-x-5 gap-y-8 my-8 py-8 sm:grid-cols-2 lg:grid-cols-3">
+              {recentPosts.map((post) => (
+                <Card
+                  key={post.id}
+                  featuredImage={post._embedded?.["wp:featuredmedia"]?.[0]}
+                  title={post.title.rendered}
+                  url={post.slug}
+                  date={post.date}
+                />
+              ))}
+            </div>
+          )}
+        </Container>
       </Container>
 
       <Container
