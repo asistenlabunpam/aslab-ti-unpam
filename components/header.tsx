@@ -62,10 +62,18 @@ export function Header() {
             onClick={() => setOpenCommand(true)}
             variant="outline"
             size="sm"
-            className="w-fit rounded-full"
+            className="hidden font-normal w-fit rounded-full sm:flex"
           >
             <SearchIcon className="size-3.5" />
             Cari...
+          </Button>
+          <Button
+            onClick={() => setOpenCommand(true)}
+            variant="ghost"
+            size="icon-sm"
+            className="sm:hidden"
+          >
+            <SearchIcon className="size-3.5" />
           </Button>
           <CommandDialog open={openCommand} onOpenChange={setOpenCommand}>
             <Command>
@@ -101,7 +109,7 @@ export function Header() {
             </Command>
           </CommandDialog>
 
-          <Separator orientation="vertical" className="h-full" />
+          <Separator orientation="vertical" className="w-auto h-14" />
 
           <AnimatedThemeToggler />
 
