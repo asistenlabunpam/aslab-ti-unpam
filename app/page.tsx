@@ -23,8 +23,8 @@ export default async function Home() {
     <>
       <Container
         as="div"
-        aria-label="Hero secction"
-        className="relative mt-14 px-4 py-10 grid grid-cols-1 place-items-center sm:px-6 sm:py-20 lg:grid-cols-2 lg:px-8 lg:mt-6 lg:py-5"
+        aria-label="Hero section"
+        className="relative flex flex-col lg:flex-row items-center px-4 py-24 sm:px-6 lg:px-8 lg:py-20"
       >
         <HeroContent />
         <HeroGallery />
