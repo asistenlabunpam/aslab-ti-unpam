@@ -1,4 +1,5 @@
 import { Course } from "@/types";
+import { MagicCard } from "./magic-card";
 
 export function CourseCard({
   icon: Icon,
@@ -8,7 +9,7 @@ export function CourseCard({
   sks,
 }: Readonly<Course>) {
   return (
-    <div className="size-full p-6 bg-base-50 border border-base-200 rounded-2xl">
+    <MagicCard className="group relative size-full p-6 bg-base-50 rounded-2xl">
       <div className="flex justify-between items-center w-full">
         <span className="inline-flex items-center rounded-full bg-blue-50 size-14 p-3 text-blue-700 inset-ring inset-ring-blue-600/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/20">
           <Icon className="size-full" />
@@ -30,6 +31,6 @@ export function CourseCard({
         </h3>
         <p className="text-base/7 text-base-foreground-400">{description}</p>
       </div>
-    </div>
+    </MagicCard>
   );
 }
