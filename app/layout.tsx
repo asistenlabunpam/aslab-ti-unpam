@@ -6,6 +6,7 @@ import { Header } from "@/components/header";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Footer } from "@/components/footer";
 import { JsonLd } from "@/components/json-ld";
+import { ScrollTopButton } from "@/components/scrolltop-button";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -112,6 +113,7 @@ export default function RootLayout({
           <Header />
           <main id="main" tabIndex={-1} className="w-full bg-transparent min-w-1 max-w-none">
             {children}
+            <ScrollTopButton />
           </main>
           <Footer />
         </ThemeProvider>

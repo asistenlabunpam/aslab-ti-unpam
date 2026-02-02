@@ -10,7 +10,7 @@ import {
 } from "@/components/DynamicBreadcrumb";
 import { Container } from "@/components/container";
 import Link from "next/link";
-import { ArrowRight, CalendarDays, User } from "lucide-react";
+import { ArrowRight, CalendarDays, FolderClosed, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
@@ -158,13 +158,13 @@ export default async function Content({
               { label: convertEncode(post.title.rendered) },
             ])}
           />
-          <h1 className="scroll-m-20 text-4xl font-semibold tracking-tight text-balance text-base-foreground-100 sm:text-5xl">
+          <h2 className="scroll-m-20 text-4xl font-semibold tracking-tight text-balance text-base-foreground-100 sm:text-5xl">
             {convertEncode(post.title.rendered)}
-          </h1>
+          </h2>
 
           <div className="flex items-center gap-x-3">
             <div className="flex items-center gap-x-2">
-              <User className="size-3.5" />
+              <FolderClosed className="size-3.5" />
               <p>
                 {category
                   ? category.charAt(0).toUpperCase() +
@@ -189,10 +189,11 @@ export default async function Content({
           <Separator />
 
           <footer className="w-full">
-            <h5 className="text-base/7 font-semibold">Tags</h5>
+            <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">Tags</h4>
             <div className="flex flex-wrap gap-x-2 gap-y-1.5 my-2">
               {tags.map((tag) => (
                 <Badge key={tag} variant="outline" className="capitalize">
+                  <Tag />
                   {tag}
                 </Badge>
               ))}

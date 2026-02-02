@@ -115,7 +115,7 @@ export default function Page() {
             <ul className="text-base-foreground-400 my-5 ml-2 [&>li]:mt-2">
               {ruangan.regulation?.map((item) => (
                 <li key={item} className="flex gap-3 text-sm">
-                  <TriangleAlert className="mt-1 size-3 text-destructive" />
+                  <TriangleAlert className="shrink-0 mt-1 size-3 text-destructive" />
                   {item}
                 </li>
               ))}

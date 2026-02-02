@@ -1,6 +1,7 @@
 import { Course } from "@/types";
 import {
   BrainCircuit,
+  ChartNoAxesCombined,
   Cloud,
   Code,
   CodeXml,
@@ -55,7 +56,7 @@ export const courses: Course[] = [
       "Mempelajari teknik ekstraksi pengetahuan dari dataset besar. Mencakup preprocessing data, penemuan pola asosiasi, klasifikasi, dan teknik clustering untuk pengambilan keputusan strategis.",
     semester: 4,
     sks: 3,
-    icon: Pickaxe,
+    icon: ChartNoAxesCombined,
   },
   {
     name: "Basis Data 1",
@@ -108,7 +109,7 @@ export const courses: Course[] = [
   {
     name: "Pemrograman Web 2",
     description:
-      "Fokus pada pengembangan sisi server (Server-side scripting). Menggunakan framework web (seperti Laravel/Node.js), manajemen session, autentikasi, dan pembangunan RESTful API.",
+      "Fokus pada pengembangan sisi server (Server-side scripting). Menggunakan bahasa pemrograman PHP, manajemen session, autentikasi, dan pembangunan CRUD (Create, Read, Update, Delete).",
     semester: 7,
     sks: 3,
     icon: GlobeLock,

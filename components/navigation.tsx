@@ -1,55 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "./ui/navigation-menu";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "./ui/navigation-menu";
 import { cn } from "@/lib/utils";
-
-const PROFILE_MENU = [
-  {
-    title: "Asisten Laboratorium",
-    href: "/asisten-laboratorium",
-    description:
-      "Informasi anggota Asisten Laboratorium di lingkungan Fakultas Teknik.",
-  },
-  {
-    title: "Struktur Organisasi",
-    href: "/struktur-organisasi",
-    description: "Susunan organisasi Laboratorium Komputer.",
-  },
-];
-
-const INFO_MENU = [
-  {
-    title: "Standar Operasional Prosedur",
-    href: "/sop",
-    description:
-      "Pedoman dan tata cara operasional Laboratorium Komputer untuk menjamin kelancaran dan keamanan kegiatan.",
-  },
-  {
-    title: "Mata Kuliah",
-    href: "/mata-kuliah",
-    description:
-      "Daftar mata kuliah praktikum yang diselenggarakan dan dilaksanakan di Laboratorium Komputer.",
-  },
-  {
-    title: "Denah Laboratorium",
-    href: "/denah-laboratorium",
-    description:
-      "Informasi tata letak ruang dan fasilitas Laboratorium Komputer.",
-  },
-  {
-    title: "Berita Acara",
-    href: "/berita-acara",
-    description:
-      "Dokumentasi dan laporan resmi pelaksanaan kegiatan dan kejadian di Laboratorium Komputer.",
-  },
-  {
-    title: "Recruitment",
-    href: "/recruitment",
-    description:
-      "Informasi pendaftaran dan seleksi calon Asisten Laboratorium.",
-  },
-];
+import { PROFILE_MENU, INFO_MENU } from "@/constants/navigation";
 
 export function MainNavigation() {
   return (
@@ -60,6 +22,7 @@ export function MainNavigation() {
         <NavDropdown title="Profil" items={PROFILE_MENU} />
         <NavDropdown title="Informasi" items={INFO_MENU} />
 
+        <NavLink href="/kegiatan">Kegiatan</NavLink>
         <NavLink href="/jadwal-laboratorium">Jadwal</NavLink>
         <NavLink href="/kontak">Kontak</NavLink>
       </NavigationMenuList>

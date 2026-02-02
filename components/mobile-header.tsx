@@ -38,6 +38,10 @@ export function MobileMenu({ onClose }: { onClose: () => void }) {
           </MobileLink>
         </MobileSection>
 
+        <MobileLink href="/kegiatan" onClick={onClose}>
+          Kegiatan
+        </MobileLink>
+
         <MobileLink href="/jadwal-laboratorium" onClick={onClose}>
           Jadwal
         </MobileLink>

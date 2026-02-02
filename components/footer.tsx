@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
+import { PROFILE_MENU, INFO_MENU } from "@/constants/navigation";
 
 export function Footer() {
   return (
@@ -9,7 +10,11 @@ export function Footer() {
         <div className="space-y-5 md:col-span-2">
           <div className="relative w-28 h-8">
             <Link href="/">
-              <Image src="/logo.svg" alt="Logo Asisten Laboratorium Universitas Pamulang" fill />
+              <Image
+                src="/logo.svg"
+                alt="Logo Asisten Laboratorium Universitas Pamulang"
+                fill
+              />
             </Link>
           </div>
 
@@ -65,30 +70,39 @@ export function Footer() {
         </div>
 
         <div className="space-y-4">
-          <h4 className="scroll-m-20 text-lg font-semibold text-base-foreground-200 tracking-tight">Navigasi</h4>
+          <h4 className="scroll-m-20 text-lg font-semibold text-base-foreground-200 tracking-tight">
+            Navigasi
+          </h4>
           <div className="flex flex-col gap-y-1.5">
             <FooterLink href="/">Beranda</FooterLink>
-            <FooterLink href="/struktur-organisasi">Struktur Organisasi</FooterLink>
-            <FooterLink href="/sop">SOP</FooterLink>
-            <FooterLink href="/kontak">Kontak</FooterLink>
+            {PROFILE_MENU.map((item) => (
+              <FooterLink key={item.href} href={item.href}>
+                {item.title}
+              </FooterLink>
+            ))}
           </div>
         </div>
 
         <div className="space-y-4">
-          <h4 className="scroll-m-20 text-lg font-semibold text-base-foreground-200 tracking-tight">Sumber Daya</h4>
+          <h4 className="scroll-m-20 text-lg font-semibold text-base-foreground-200 tracking-tight">
+            Sumber Daya
+          </h4>
           <div className="flex flex-col gap-y-1.5">
-            <FooterLink href="/berita-acara">Berita Acara</FooterLink>
-            <FooterLink href="/mata-kuliah">Mata Kuliah</FooterLink>
-            <FooterLink href="/denah-laboratorium">Denah Lab</FooterLink>
-            <FooterLink href="/jadwal-laboratorium">Jadwal Lab</FooterLink>
+            {INFO_MENU.map((item) => (
+              <FooterLink key={item.href} href={item.href}>
+                {item.title}
+              </FooterLink>
+            ))}
           </div>
         </div>
       </div>
 
-      <div className="flex flex-col gap-3 border-t border-base-200 py-3 text-sm text-base-foreground-400 md:flex-row md:items-center md:justify-between">
-        <p className="text-center order-2 md:-order-1 md:text-start">&copy; {new Date().getFullYear()} ASLAB TI. All rights reserved.</p>
+      <div className="flex flex-col gap-y-6 border-t border-base-200 py-3 text-sm text-base-foreground-400 md:flex-row md:gap-y-0 md:items-center md:justify-between">
+        <p className="text-center order-2 md:-order-1 md:text-start">
+          &copy; {new Date().getFullYear()} ASLAB TI. All rights reserved.
+        </p>
 
-        <div className="flex justify-center items-center gap-4 md:justify-start">
+        <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-px md:justify-start">
           <FooterLink href="https://unpam.ac.id">unpam.ac.id</FooterLink>
           <FooterLink href="https://informatika.unpam.ac.id">
             informatika.unpam.ac.id
@@ -100,10 +114,18 @@ export function Footer() {
   );
 }
 
-function SocialButton({ href, children }: { href: string, children: React.ReactNode }) {
+function SocialButton({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
   return (
-    <Button variant="outline" size="icon-lg" className="rounded-full p-2" asChild>
-      <Link href={href} target="_blank" rel="noopener noreferrer">{children}</Link>
+    <Button variant="outline" size="icon" className="rounded-full p-2" asChild>
+      <Link href={href} target="_blank" rel="noopener noreferrer">
+        {children}
+      </Link>
     </Button>
   );
 }

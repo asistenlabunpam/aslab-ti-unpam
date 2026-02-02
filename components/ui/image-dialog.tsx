@@ -27,7 +27,7 @@ export function ImageDialog({
         variant="ghost"
         onClick={() => setOpen(true)}
         className={cn(
-          "relative aspect-video size-full overflow-hidden p-0! rounded-lg",
+          "relative group aspect-video size-full overflow-hidden p-0! rounded-lg",
           thumbnailClassName,
         )}
       >
@@ -36,7 +36,7 @@ export function ImageDialog({
           alt={alt}
           fill
           loading="lazy"
-          className="object-cover"
+          className="object-cover group-hover:scale-105 group-hover:opacity-75"
         />
       </Button>
 
