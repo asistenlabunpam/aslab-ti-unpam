@@ -18,6 +18,7 @@ import { AnimatePresence, motion } from "motion/react";
 import Image, { ImageProps } from "next/image";
 import { Button } from "./button";
 import { useOutsideClick } from "@/hooks/use-outside-click";
+import { Portal } from "../portal";
 
 interface CarouselProps {
   items: JSX.Element[];
@@ -162,10 +163,14 @@ export const Card = ({
   card,
   index,
   layout = false,
+  defaultClass = true,
+  className
 }: {
   card: Card;
   index: number;
   layout?: boolean;
+  defaultClass?: boolean;
+  className?: string;
 }) => {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -184,9 +189,9 @@ export const Card = ({
     }
 
     if (open) {
-      document.body.style.overflow = "hidden";
+      document.body.classList.add("overflow-hidden");
     } else {
-      document.body.style.overflow = "auto";
+      document.body.classList.remove("overflow-hidden");
     }
 
     window.addEventListener("keydown", onKeyDown);
@@ -203,53 +208,55 @@ export const Card = ({
     <>
       <AnimatePresence>
         {open && (
-          <div className="fixed inset-0 z-60 h-dvh overflow-auto">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 size-full bg-static-950/80 backdrop-blur-lg"
-            />
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              ref={containerRef}
-              layoutId={layout ? `card-${card.title}` : undefined}
-              className="relative mx-auto my-10 h-fit max-w-5xl rounded-3xl bg-base-50 p-4 md:p-10"
-            >
-              <Button
-                size="icon"
-                className="absolute top-7 right-7 rounded-full"
-                onClick={handleClose}
+          <Portal>
+            <div className="fixed inset-0 z-60 h-dvh overflow-auto">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="fixed inset-0 size-full bg-static-950/80 backdrop-blur-lg"
+              />
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                ref={containerRef}
+                layoutId={layout ? `card-${card.title}` : undefined}
+                className="relative mx-auto my-10 h-fit max-w-5xl rounded-3xl bg-base-50 p-4 md:p-10"
               >
-                <IconX />
-              </Button>
+                <Button
+                  size="icon"
+                  className="absolute top-7 right-7 rounded-full"
+                  onClick={handleClose}
+                >
+                  <IconX />
+                </Button>
 
-              <motion.p
-                layoutId={layout ? `category-${card.title}` : undefined}
-                className="text-base font-medium text-base-foreground-50"
-              >
-                {card.category}
-              </motion.p>
-              <motion.p
-                layoutId={layout ? `title-${card.title}` : undefined}
-                className="mt-4 text-2xl font-semibold text-base-foreground-300 md:text-5xl"
-              >
-                {card.title}
-              </motion.p>
-              <div className="py-10">{card.content}</div>
-            </motion.div>
-          </div>
+                <motion.p
+                  layoutId={layout ? `category-${card.title}` : undefined}
+                  className="text-base font-medium text-base-foreground-50"
+                >
+                  {card.category}
+                </motion.p>
+                <motion.p
+                  layoutId={layout ? `title-${card.title}` : undefined}
+                  className="mt-4 text-2xl font-semibold text-base-foreground-300 md:text-5xl"
+                >
+                  {card.title}
+                </motion.p>
+                <div className="py-10">{card.content}</div>
+              </motion.div>
+            </div>
+          </Portal>
         )}
       </AnimatePresence>
 
       <motion.button
         layoutId={layout ? `card-${card.title}` : undefined}
         onClick={handleOpen}
-        className="relative group z-10 flex h-80 w-56 flex-col items-start justify-start overflow-hidden rounded-xl bg-base-100 md:h-128 md:w-96 md:rounded-3xl"
+        className={cn(defaultClass ? "relative group z-10 flex h-80 w-56 flex-col items-start justify-start overflow-hidden rounded-xl bg-base-100 md:h-128 md:w-96 md:rounded-3xl" : className)}
       >
-        <div className="pointer-events-none absolute inset-x-0 top-0 z-30 h-full bg-linear-to-b from-static-950/50 via-transparent to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-30 h-full bg-linear-to-b from-static-950/50 group-hover:from-static-950/80 to-transparent transition-colors duration-200" />
         <div className="relative z-40 p-5 md:p-8">
           <motion.p
             layoutId={layout ? `category-${card.category}` : undefined}
