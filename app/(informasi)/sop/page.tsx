@@ -1,3 +1,5 @@
+import { Check, Info, SearchCheck, User } from "lucide-react";
+
 type NestedItem = {
   title: string;
   subItems: string[];
@@ -55,7 +57,7 @@ export default function Page() {
   ];
 
   return (
-    <div className="w-full mt-32 px-4 sm:px-6 lg:px-8">
+    <div className="w-full my-28 py-8 px-4 sm:px-6 lg:px-8">
       <p className="text-base/7 font-semibold text-base-foreground-300">
         Standar Operasional Prosedur
       </p>
@@ -92,18 +94,26 @@ export default function Page() {
                 sehingga menjadi unsur penting dalam kegiatan pendidikan dan
                 penelitian, khususnya di bidang pembelajaran.
               </p>
-              <ul className="text-base/7 text-base-foreground-300 my-5 ml-6 list-disc [&>li]:mt-2">
+              <ul className="text-base/7 text-base-foreground-300 my-5 [&>li]:mt-3">
                 {[
                   "Pusat praktik, latihan, penelitian, tugas akhir dan sumber pembelajaran bagi dosen dan mahasiswa Program Studi Teknik Informatika",
                   "Pusat penelitian, pengabdian masyarakat dan pengembangan bagi dosen dan mahasiswa Program Studi Teknik Informatika.",
                   "Pusat pengembangan keilmuan seperti Basis Data, Algoritma dan Pemrograman, Struktur Data, dan Jaringan komputer pada Program Studi Teknik Informatika.",
-                ].map((list) => (
-                  <li key={list}>{list}</li>
+                ].map((list, index) => (
+                  <li
+                    key={list}
+                    className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:gap-x-5 sm:rounded-xl"
+                  >
+                    <span className="shrink-0 inline-flex justify-center items-center size-10 mt-1 rounded-full bg-blue-50 font-medium text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30 sm:text-lg sm:size-12">
+                      {index + 1}
+                    </span>
+                    <p>{list}</p>
+                  </li>
                 ))}
               </ul>
             </div>
 
-            <div>
+            <div className="w-full mt-16">
               <h3 className="scroll-m-20 text-2xl text-base-foreground-200 font-semibold tracking-tight">
                 Struktur Laboratorium
               </h3>
@@ -113,19 +123,22 @@ export default function Page() {
                 Praktikum.
               </p>
 
-              <ul className="text-base/7 text-base-foreground-300 my-5 ml-6 list-disc [&>li]:mt-2">
+              <ul className="text-base/7 text-base-foreground-300 my-5 [&>li]:mt-3">
                 {[
                   "Pembina adalah Ketua Program Studi yang berperan memberikan arahan dalam pengembangan serta pelaksanaan kegiatan laboratorium.",
                   "Kepala Laboratorium bertugas mengelola laboratorium dengan memanfaatkan seluruh sumber daya secara terencana, terkontrol, dan berkelanjutan.",
                   "Asisten Laboratorium adalah pihak yang ditunjuk untuk membantu pengelolaan, pengembangan, serta kelancaran pelaksanaan praktikum.",
                   "Dosen bertugas melaksanakan kegiatan pengajaran di dalam laboratorium.",
                   "Mahasiswa adalah peserta praktikum yang telah terdaftar pada mata kuliah terkait di semester berjalan.",
-                ].map((item, index) => (
-                  <li key={index} className="flex gap-x-3">
-                    <span className="flex size-5 shrink-0 items-center justify-center mt-1 rounded-full bg-base-200 text-xs text-base-foreground-200">
+                ].map((list, index) => (
+                  <li
+                    key={list}
+                    className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:gap-x-5 sm:rounded-xl"
+                  >
+                    <span className="shrink-0 inline-flex justify-center items-center size-10 mt-1 rounded-full bg-blue-50 font-medium text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30 sm:text-lg sm:size-12">
                       {index + 1}
                     </span>
-                    <p className="text-base-foreground-300">{item}</p>
+                    <p>{list}</p>
                   </li>
                 ))}
               </ul>
@@ -143,11 +156,11 @@ export default function Page() {
           </p>
 
           <div className="space-y-5">
-            <div>
+            <div className="mt-8">
               <h3 className="scroll-m-20 text-2xl text-base-foreground-200 font-semibold tracking-tight">
                 Tata Tertib Penggunaan Laboratorium Komputer
               </h3>
-              <ul className="text-base/7 text-base-foreground-300 my-6 ml-6 list-disc [&>li]:mt-2">
+              <ul className="text-base/7 text-base-foreground-300 my-6 [&>li]:mt-3">
                 {[
                   "Mahasiswa atau dosen wajib mengisi buku kunjungan laboratorium di luar jadwal praktikum",
                   "Mahasiswa atau dosen yang meminjam peralatan laboratorium wajib mengikuti ketentuan peminjaman dan pengembalian",
@@ -161,12 +174,15 @@ export default function Page() {
                   "Setiap pengguna laboratorium wajib menjaga keamanan inventaris laboratorium",
                   "Apabila terjadi kerusakan, pengguna wajib melapor dan mengganti peralatan tersebut",
                   "Apabila tidak ada yang mengakui kerusakan, seluruh pengguna wajib mengganti peralatan",
-                ].map((rule, index) => (
-                  <li key={index} className="flex gap-x-3">
-                    <span className="flex size-5 shrink-0 items-center justify-center mt-1 rounded-full bg-base-200 text-xs text-base-foreground-200">
-                      {String.fromCharCode(97 + index)}
+                ].map((list) => (
+                  <li
+                    key={list}
+                    className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:items-center sm:gap-x-5 sm:rounded-xl"
+                  >
+                    <span className="shrink-0 inline-flex justify-center items-center size-10 mt-1 p-3 rounded-full bg-green-50 text-green-700 inset-ring inset-ring-green-600/20 dark:bg-green-400/10 dark:text-green-400 dark:inset-ring-green-500/20 sm:size-12">
+                      <Check className="size-full" />
                     </span>
-                    <p className="text-base-foreground-300">{rule}</p>
+                    <p>{list}</p>
                   </li>
                 ))}
               </ul>
@@ -177,7 +193,7 @@ export default function Page() {
                 Tata Tertib Praktek Laboratorium
               </h3>
 
-              <ul className="text-base/7 text-base-foreground-300 my-6 ml-6 list-disc [&>li]:mt-2">
+              <ul className="text-base/7 text-base-foreground-300 my-6 [&>li]:mt-3">
                 {[
                   "Setiap mahasiswa wajib mengikuti kegiatan praktikum",
                   "Mahasiswa wajib berpakaian sopan dan rapi saat berada di dalam laboratorium",
@@ -194,12 +210,15 @@ export default function Page() {
                   "Setiap pengguna dilarang bermain game atau melakukan aktivitas tidak berkaitan",
                   "Setiap pengguna dilarang melakukan tindakan yang dapat merusak fasilitas laboratorium",
                   "Penggunaan laboratorium harus sesuai dengan jadwal yang telah ditentukan",
-                ].map((rule, index) => (
-                  <li key={index} className="flex gap-3">
-                    <span className="flex size-5 shrink-0 items-center justify-center mt-1 rounded-full bg-base-200 text-xs text-base-foreground-200">
-                      {index + 1}
+                ].map((list) => (
+                  <li
+                    key={list}
+                    className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:items-center sm:gap-x-4 sm:rounded-xl"
+                  >
+                    <span className="shrink-0 inline-flex justify-center items-center size-8 mt-1 p-2 rounded-full bg-green-50 text-green-700 inset-ring inset-ring-green-600/20 dark:bg-green-400/10 dark:text-green-400 dark:inset-ring-green-500/20">
+                      <Check className="size-full" />
                     </span>
-                    <p className="text-base-foreground-300">{rule}</p>
+                    <p>{list}</p>
                   </li>
                 ))}
               </ul>
@@ -224,7 +243,7 @@ export default function Page() {
                 adalah:
               </p>
 
-              <ul className="text-base/7 text-base-foreground-300 mt-3 mb-6 ml-6 list-disc [&>li]:mt-2">
+              <ul className="text-base/7 text-base-foreground-300 mt-3 mb-6 [&>li]:mt-3">
                 {[
                   {
                     title:
@@ -237,18 +256,39 @@ export default function Page() {
                     ],
                   },
                   "Laboran/Teknisi menyiapkan jadwal pelaksanaan, software yang diperlukan dan berkoordinasi dengan Ketua Laboratorium/Dosen yang bersangkutan",
-                ].map((item, index) =>
-                  typeof item === "object" ? (
-                    <li key={index}>
-                      {item.title}
-                      <ul className="text-base/7 text-base-foreground-300 my-3 ml-6 list-decimal [&>li]:mt-2">
-                        {item.items.map((subItem, subIndex) => (
-                          <li key={subIndex}>{subItem}</li>
-                        ))}
-                      </ul>
+                ].map((list, index) =>
+                  typeof list === "object" ? (
+                    <li
+                      key={index}
+                      className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:gap-x-5 sm:rounded-xl"
+                    >
+                      <span className="shrink-0 inline-flex justify-center items-center size-9 mt-1 p-2.5 rounded-full bg-blue-50 text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30">
+                        <User className="size-full" />
+                      </span>
+                      <div>
+                        {list.title}
+                        <ul className="text-base/7 text-base-foreground-300 my-4 ml-6 [&>li]:mt-2">
+                          {list.items.map((subItem, subIndex) => (
+                            <li key={subIndex} className="flex gap-x-3">
+                              <span className="shrink-0 inline-flex justify-center items-center mt-1.5 size-4 rounded-full bg-static-50 text-[0.5rem] font-medium text-static-600 ring-1 ring-inset ring-static-500/10 dark:bg-static-400/10 dark:text-static-400 dark:ring-static-400/20">
+                                {subIndex + 1}
+                              </span>
+                              {subItem}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </li>
                   ) : (
-                    <li key={index}>{item}</li>
+                    <li
+                      key={list}
+                      className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:gap-x-5 sm:rounded-xl"
+                    >
+                      <span className="shrink-0 inline-flex justify-center items-center size-9 mt-1 p-2.5 rounded-full bg-blue-50 text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30">
+                        <User className="size-full" />
+                      </span>
+                      <p>{list}</p>
+                    </li>
                   ),
                 )}
               </ul>
@@ -264,41 +304,68 @@ export default function Page() {
                 dilakukan adalah:
               </p>
 
-              <ul className="text-base/7 text-base-foreground-300 my-6 ml-6 list-disc [&>li]:mt-2">
-                {data.map((item, index) => {
-                  if (typeof item === "string") {
-                    return <li key={index}>{item}</li>;
+              <ul className="text-base/7 text-base-foreground-300 my-6 [&>li]:mt-3">
+                {data.map((list, index) => {
+                  if (typeof list === "string") {
+                    return <li key={index}>{list}</li>;
                   }
 
                   return (
-                    <li key={index}>
-                      {item.title}
-                      <ul className="text-base/7 text-base-foreground-300 my-4 ml-6 list-decimal [&>li]:mt-2">
-                        {item.items.map((subItem, subIndex) => {
-                          if (typeof subItem === "string") {
-                            return (
-                              <li key={`${index}-${subIndex}`}>{subItem}</li>
-                            );
-                          }
+                    <li
+                      key={index}
+                      className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:gap-x-5 sm:rounded-xl"
+                    >
+                      <span className="shrink-0 inline-flex justify-center items-center size-9 mt-1 p-2.5 rounded-full bg-blue-50 text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30">
+                        <User className="size-full" />
+                      </span>
+                      <div>
+                        {list.title}
+                        <ul className="text-base/7 text-base-foreground-300 my-4 ml-6 list-decimal [&>li]:mt-3">
+                          {list.items.map((subItem, subIndex) => {
+                            if (typeof subItem === "string") {
+                              return (
+                                <li key={subIndex} className="flex gap-x-3">
+                                  <span className="shrink-0 inline-flex justify-center items-center mt-1.5 size-4 rounded-full bg-static-50 text-[0.5rem] font-medium text-static-600 ring-1 ring-inset ring-static-500/10 dark:bg-static-400/10 dark:text-static-400 dark:ring-static-400/20">
+                                    {subIndex + 1}
+                                  </span>
+                                  {subItem}
+                                </li>
+                              );
+                            }
 
-                          return (
-                            <li key={`${index}-${subIndex}`}>
-                              {subItem.title}
-                              <ol className="text-base/7 text-base-foreground-300 my-4 ml-6 list-disc [&>li]:mt-2">
-                                {subItem.subItems.map(
-                                  (nestedItem, nestedIndex) => (
-                                    <li
-                                      key={`${index}-${subIndex}-${nestedIndex}`}
-                                    >
-                                      {nestedItem}
-                                    </li>
-                                  ),
-                                )}
-                              </ol>
-                            </li>
-                          );
-                        })}
-                      </ul>
+                            return (
+                              <li
+                                key={`${index}-${subIndex}`}
+                                className="flex gap-x-3"
+                              >
+                                <span className="shrink-0 inline-flex justify-center items-center mt-1.5 size-4 rounded-full bg-static-50 text-[0.5rem] font-medium text-static-600 ring-1 ring-inset ring-static-500/10 dark:bg-static-400/10 dark:text-static-400 dark:ring-static-400/20">
+                                  {subIndex + 1}
+                                </span>
+                                <div className="flex gap-x-3">
+                                  <div>
+                                    {subItem.title}
+                                    <ul className="text-base/7 text-base-foreground-300 my-4 ml-6 [&>li]:mt-2">
+                                      {subItem.subItems.map(
+                                        (nestedItem, nestedIndex) => (
+                                          <li
+                                            key={`${index}-${subIndex}-${nestedIndex}`}
+                                            className="flex gap-x-3"
+                                          >
+                                            <span className="shrink-0 inline-flex justify-center items-center mt-1.5 size-4 p-1 rounded-full bg-green-50 text-green-700 inset-ring inset-ring-green-600/20 dark:bg-green-400/10 dark:text-green-400 dark:inset-ring-green-500/20">
+                                              <Check />
+                                            </span>
+                                            {nestedItem}
+                                          </li>
+                                        ),
+                                      )}
+                                    </ul>
+                                  </div>
+                                </div>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </div>
                     </li>
                   );
                 })}
@@ -325,7 +392,7 @@ export default function Page() {
                 adalah:
               </p>
 
-              <ul className="text-base/7 text-base-foreground-300 my-6 ml-6 list-disc [&>li]:mt-2">
+              <ul className="text-base/7 text-base-foreground-300 my-6 [&>li]:mt-3">
                 {[
                   {
                     title:
@@ -337,18 +404,39 @@ export default function Page() {
                     ],
                   },
                   "Laboran/Teknisi menyiapkan jadwal pelaksanaan, software yang diperlukan dan berkoordinasi dengan Ketua Laboratorium/Dosen yang bersangkutan",
-                ].map((item, index) =>
-                  typeof item === "object" ? (
-                    <li key={index}>
-                      {item.title}
-                      <ul className="text-base/7 text-base-foreground-300 my-4 ml-6 list-decimal [&>li]:mt-2">
-                        {item.items.map((subItem, subIndex) => (
-                          <li key={subIndex}>{subItem}</li>
-                        ))}
-                      </ul>
+                ].map((list, index) =>
+                  typeof list === "object" ? (
+                    <li
+                      key={index}
+                      className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:gap-x-5 sm:rounded-xl"
+                    >
+                      <span className="shrink-0 inline-flex justify-center items-center size-9 mt-1 p-2.5 rounded-full bg-blue-50 text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30">
+                        <User className="size-full" />
+                      </span>
+                      <div>
+                        {list.title}
+                        <ul className="text-base/7 text-base-foreground-300 my-4 [&>li]:mt-2">
+                          {list.items.map((subItem, subIndex) => (
+                            <li key={subIndex} className="flex gap-x-3">
+                              <span className="shrink-0 inline-flex justify-center items-center mt-1.5 size-4 rounded-full bg-static-50 text-[0.5rem] font-medium text-static-600 ring-1 ring-inset ring-static-500/10 dark:bg-static-400/10 dark:text-static-400 dark:ring-static-400/20">
+                                {subIndex + 1}
+                              </span>
+                              {subItem}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </li>
                   ) : (
-                    <li key={index}>{item}</li>
+                    <li
+                      key={list}
+                      className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:gap-x-5 sm:rounded-xl"
+                    >
+                      <span className="shrink-0 inline-flex justify-center items-center size-9 mt-1 p-2.5 rounded-full bg-blue-50 text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30">
+                        <User className="size-full" />
+                      </span>
+                      <p>{list}</p>
+                    </li>
                   ),
                 )}
               </ul>
@@ -364,7 +452,7 @@ export default function Page() {
                 dilakukan adalah:
               </p>
 
-              <ul className="text-base/7 text-base-foreground-300 my-6 ml-6 list-disc [&>li]:mt-2">
+              <ul className="text-base/7 text-base-foreground-300 my-6 [&>li]:mt-3">
                 {[
                   "Laboran/teknisi mempersiapkan sarana prasarana Laboratorium Komputer bagi dosen/mahasiswa peneliti.",
                   "Asisten lab/dosen peneliti memastikan bahwa komputer dan sarana/prasarana pendukung siap digunakan.",
@@ -405,37 +493,63 @@ export default function Page() {
                       },
                     ],
                   },
-                ].map((item, index) =>
-                  typeof item === "object" ? (
-                    <li key={index}>
-                      {item.title}
-                      <ol className="text-base/7 text-base-foreground-300 my-4 ml-6 list-decimal [&>li]:mt-2">
-                        {item.items.map((subItem, subIndex) => (
-                          <li key={`${index}-${subIndex}`}>
-                            {subItem.subItems ? (
-                              <>
-                                {subItem.title}
-                                <ol className="text-base/7 text-base-foreground-300 my-4 ml-6 list-disc [&>li]:mt-2">
-                                  {subItem.subItems.map(
-                                    (nestedItem, nestedIndex) => (
-                                      <li
-                                        key={`${index}-${subIndex}-${nestedIndex}`}
-                                      >
-                                        {nestedItem}
-                                      </li>
-                                    ),
-                                  )}
-                                </ol>
-                              </>
-                            ) : (
-                              subItem.title
-                            )}
-                          </li>
-                        ))}
-                      </ol>
+                ].map((list, index) =>
+                  typeof list === "object" ? (
+                    <li
+                      key={index}
+                      className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:gap-x-5 sm:rounded-xl"
+                    >
+                      <span className="shrink-0 inline-flex justify-center items-center size-9 p-2.5 rounded-full bg-blue-50 text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30">
+                        <User className="size-full" />
+                      </span>
+                      <div>
+                        {list.title}
+                        <ul className="text-base/7 text-base-foreground-300 my-4 [&>li]:mt-3">
+                          {list.items.map((subItem, subIndex) => (
+                            <li
+                              key={`${index}-${subIndex}`}
+                              className="flex gap-x-3"
+                            >
+                              <span className="shrink-0 inline-flex justify-center items-center mt-1.5 size-4 rounded-full bg-static-50 text-[0.5rem] font-medium text-static-600 ring-1 ring-inset ring-static-500/10 dark:bg-static-400/10 dark:text-static-400 dark:ring-static-400/20">
+                                {subIndex + 1}
+                              </span>
+                              {subItem.subItems ? (
+                                <div>
+                                  {subItem.title}
+                                  <ul className="text-base/7 text-base-foreground-300 my-4 ml-6 [&>li]:mt-2">
+                                    {subItem.subItems.map(
+                                      (nestedItem, nestedIndex) => (
+                                        <li
+                                          key={`${index}-${subIndex}-${nestedIndex}`}
+                                          className="flex gap-x-3"
+                                        >
+                                          <span className="shrink-0 inline-flex justify-center items-center mt-1.5 size-4 p-1 rounded-full bg-green-50 text-green-700 inset-ring inset-ring-green-600/20 dark:bg-green-400/10 dark:text-green-400 dark:inset-ring-green-500/20">
+                                            <Check />
+                                          </span>
+                                          {nestedItem}
+                                        </li>
+                                      ),
+                                    )}
+                                  </ul>
+                                </div>
+                              ) : (
+                                subItem.title
+                              )}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </li>
                   ) : (
-                    <li key={index}>{item}</li>
+                    <li
+                      key={list}
+                      className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:items-center sm:gap-x-5 sm:rounded-xl"
+                    >
+                      <span className="shrink-0 inline-flex justify-center items-center size-9 p-2.5 rounded-full bg-blue-50 text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30">
+                        <User className="size-full" />
+                      </span>
+                      <p>{list}</p>
+                    </li>
                   ),
                 )}
               </ul>
@@ -464,7 +578,7 @@ export default function Page() {
             Informatika adalah:
           </p>
 
-          <ul className="text-base/7 text-base-foreground-300 my-6 ml-6 list-disc [&>li]:mt-2">
+          <ul className="text-base/7 text-base-foreground-300 my-6 [&>li]:mt-3">
             {[
               "Koordinator (dosen/mahasiswa) kegiatan mengajukan permohonan/proposal kepada Ketua Program Studi Teknik Informatika beserta keperluan peminjaman alat/ruangan Laboratorium yang dituju.",
               "Apabila permohonan/proposal tersebut disetujui oleh Ketua Program Studi Teknik Informatika, maka Ketua Program Studi Teknik Informatika akan memberikan disposisi kepada Ketua Laboratorium tentang keperluan pemakaian ruang/lab tersebut.",
@@ -481,18 +595,39 @@ export default function Page() {
               "Laboran/Teknisi menyiapkan jadwal pelaksanaan, sarana dan prasarana, dan software yang diperlukan dan berkoordinasi dengan Ketua Laboratorium/Koordinator kegiatan yang bersangkutan.",
               "Pada saat kegiatan dilaksanakan, koordinator kegiatan/laboran harus memastikan bahwa seluruh tahap kegiatan di Lab harus sesuai dengan SOP pemakaian sarana dan prasarana Lab untuk praktikum.",
               "Setelah semua aktivitas Pelatihan/Workshop selesai dilaksanakan, dosen/mahasiswa koordinator diharapkan membuat laporan kepada Ketua Program Studi Teknik Informatika (tembusan kepada Ketua Laboratorium) yang berisi ringkasan kegiatan yang nantinya akan digunakan sebagai pendukung dokumentasi kegiatan laboratorium.",
-            ].map((item, index) =>
-              typeof item === "object" ? (
-                <li key={index}>
-                  {item.title}
-                  <ol className="text-base/7 text-base-foreground-300 my-4 ml-6 list-decimal [&>li]:mt-2">
-                    {item.items.map((subItem, subIndex) => (
-                      <li key={subIndex}>{subItem}</li>
-                    ))}
-                  </ol>
+            ].map((list, index) =>
+              typeof list === "object" ? (
+                <li
+                  key={index}
+                  className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:gap-x-5 sm:rounded-xl"
+                >
+                  <span className="shrink-0 inline-flex justify-center items-center size-9 mt-1 p-2.5 rounded-full bg-blue-50 text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30">
+                    <Info className="size-full" />
+                  </span>
+                  <div>
+                    {list.title}
+                    <ul className="text-base/7 text-base-foreground-300 my-4 [&>li]:mt-2">
+                      {list.items.map((subItem, subIndex) => (
+                        <li key={subIndex} className="flex gap-x-3">
+                          <span className="shrink-0 inline-flex justify-center items-center mt-1.5 size-4 rounded-full bg-static-50 text-[0.5rem] font-medium text-static-600 ring-1 ring-inset ring-static-500/10 dark:bg-static-400/10 dark:text-static-400 dark:ring-static-400/20">
+                            {subIndex + 1}
+                          </span>
+                          {subItem}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </li>
               ) : (
-                <li key={index}>{item}</li>
+                <li
+                  key={list}
+                  className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:gap-x-5 sm:rounded-xl"
+                >
+                  <span className="shrink-0 inline-flex justify-center items-center size-9 mt-1 p-2.5 rounded-full bg-blue-50 text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30">
+                    <Info className="size-full" />
+                  </span>
+                  <p>{list}</p>
+                </li>
               ),
             )}
           </ul>
@@ -508,7 +643,7 @@ export default function Page() {
             Studi Teknik Informatika sebagai berikut:
           </p>
 
-          <ul className="text-base/7 text-base-foreground-300 my-6 ml-6 list-disc [&>li]:mt-2">
+          <ul className="text-base/7 text-base-foreground-300 my-6 [&>li]:mt-3">
             {[
               "Laboran mengecek semua peralatan laboratorium setiap bulan",
               "Laboran mengisi form kondisi peralatan laboratorium",
@@ -516,12 +651,15 @@ export default function Page() {
               "Laboran mengecek apakah peralatan tersebut dapat diperbaiki sendiri, bila tidak maka laboran memberitahu dan meminta persetujuan Ketua Laboratorium untuk perbaikan diluar atau mengganti dengan yang baru",
               "Ketua Laboratorium menyetujui dan menandatangani",
               "Surat pengajuan peralatan laboratorium ditujukan kepada Ketua Program Studi Teknik Informatika",
-            ].map((procedure, index) => (
-              <li key={index} className="flex gap-3">
-                <span className="flex size-5 shrink-0 items-center justify-center mt-1 rounded-full bg-base-200 text-xs text-base-foreground-200">
-                  {index + 1}
+            ].map((list) => (
+              <li
+                key={list}
+                className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:items-center sm:gap-x-5 sm:rounded-xl"
+              >
+                <span className="shrink-0 inline-flex justify-center items-center size-9 mt-1 p-2.5 rounded-full bg-blue-50 text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30">
+                  <SearchCheck className="size-full" />
                 </span>
-                <p className="text-base-foreground-300">{procedure}</p>
+                <p>{list}</p>
               </li>
             ))}
           </ul>
