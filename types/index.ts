@@ -3,3 +3,4 @@ export * from "./room";
 export * from "./activity";
 export * from "./contact";
 export * from "./wordpress";
+export * from "./navigation";

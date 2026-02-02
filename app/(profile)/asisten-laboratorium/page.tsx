@@ -5,6 +5,7 @@ import { SectionHeader } from "@/components/heading";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { member } from "@/constants/anggota";
+import { Button } from "@/components/ui/button";
 
 export default function AsistenLab() {
   const [activeTab, setActiveTab] = useState<number>(0);
@@ -15,11 +16,11 @@ export default function AsistenLab() {
         eyebrow="Anggota Organisasi"
         title="Asisten Laboratorium"
         description="Tim asisten laboratorium yang berdedikasi untuk mendukung kelancaran pembelajaran dan praktikum."
-       className="mt-24"
+        className="mt-24"
       />
 
       <div className="relative mt-14 grid grid-cols-1 gap-10 px4 py-10 sm:px-6 lg:grid-cols-4 lg:px-8">
-        <div className="sticky top-0 z-50 flex gap-6 bg-base-50/80 backdrop-blur-md overflow-x-auto lg:flex-col">
+        <div className="sticky top-0 z-10 flex gap-6 bg-base-50/80 backdrop-blur-md overflow-x-auto lg:flex-col">
           {member.map((aslab, index) => (
             <div key={aslab.date} className="relative">
               <div
@@ -31,17 +32,19 @@ export default function AsistenLab() {
                     : "bg-base-foreground-100/10 w-px",
                 )}
               />
-              <button
+              <Button
+                variant="ghost"
                 onClick={() => setActiveTab(index)}
-                className={`text-left pl-5 ${
+                className={cn(
+                  "flex-col gap-y-1 items-start text-left py-1! pl-5 size-full rounded-l-none",
                   activeTab === index
                     ? "text-base-foreground-100 font-semibold"
-                    : "text-base-500"
-                }`}
+                    : "text-base-500",
+                )}
               >
                 <p className="text-sm">{aslab.anggota.length} Anggota</p>
                 <p className="block text-xl">ASLAB {aslab.date}</p>
-              </button>
+              </Button>
             </div>
           ))}
         </div>

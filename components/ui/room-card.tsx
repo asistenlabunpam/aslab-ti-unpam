@@ -11,7 +11,7 @@ export function RoomCard({
 }: Readonly<Room>) {
   return (
     <div className="relative">
-      <div className="group overflow-hidden rounded-lg bg-base-100 focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-orange-500">
+      <div className="group overflow-hidden rounded-lg bg-base-100 focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-blue-500">
         <div className="relative aspect-video outline -outline-offset-1 outline-base-foreground-50/5 group-hover:opacity-75 rounded-lg shadow-xl">
           <Image
             src={image || ""}

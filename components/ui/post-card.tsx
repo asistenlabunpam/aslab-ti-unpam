@@ -32,7 +32,8 @@ export function Card({
           />
         </div>
       )}
-      <div className="grid grid-cols-2 gap-x-3 text-sm/6 font-medium mt-3">
+      
+      <div className="grid grid-cols-2 gap-x-3 text-sm/6 mt-3">
         <div className="flex items-center gap-x-2">
           <User size={14} />
           <p className="capitalize rounded-full text-base-foreground-400">Admin</p>
@@ -47,6 +48,7 @@ export function Card({
           </time>
         </div>
       </div>
+
       <div className="w-full grow my-3">
         <h3 className="text-base-foreground-100 text-2xl font-semibold line-clamp-2">
           <Link
