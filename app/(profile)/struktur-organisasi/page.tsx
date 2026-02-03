@@ -1,8 +1,6 @@
 import { Container } from "@/components/container";
 import { Figure } from "@/components/figure";
 import { SectionHeader } from "@/components/heading";
-import { BlurFade } from "@/components/ui/blur-fade";
-import { TextAnimate } from "@/components/ui/text-animate";
 
 export default function Page() {
   return (
@@ -18,23 +16,18 @@ export default function Page() {
         as="section"
         className="w-full max-w-4xl mx-auto text-center bg-transparent px-4 mb-24 sm:px-6 lg:px-8"
       >
-        <BlurFade delay={0.45} direction="up" inView>
+        <div>
           <img
             src="/images/struktur_organisasi.webp"
             alt="Bagan Struktur Organisasi Laboratorium Teknik Informatika Universitas Pamulang."
             loading="lazy"
             className="aspect-auto mx-auto"
           />
-        </BlurFade>
-        <TextAnimate
-          animation="blurInUp"
-          by="character"
-          once
-          className="w-full mt-10 text-base-foreground-400"
-        >
-          Bagan Struktur Organisasi Laboratorium Teknik Informatika Universitas
-          Pamulang.
-        </TextAnimate>
+          <p className="w-full mt-10 text-base-foreground-400">
+            Bagan Struktur Organisasi Laboratorium Teknik Informatika
+            Universitas Pamulang.
+          </p>
+        </div>
       </Container>
     </>
   );
