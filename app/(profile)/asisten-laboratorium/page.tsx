@@ -6,7 +6,6 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { member } from "@/constants/anggota";
 import { Button } from "@/components/ui/button";
-import { BlurFade } from "@/components/ui/blur-fade";
 
 export default function AsistenLab() {
   const [activeTab, setActiveTab] = useState<number>(0);
@@ -23,13 +22,7 @@ export default function AsistenLab() {
       <div className="relative mt-14 grid grid-cols-1 gap-10 px4 py-10 sm:px-6 lg:grid-cols-4 lg:px-8">
         <div className="sticky top-0 z-10 flex gap-6 bg-base-50/80 backdrop-blur-md overflow-x-auto lg:flex-col">
           {member.map((aslab, index) => (
-            <BlurFade
-              key={aslab.date}
-              delay={0.35 + index * 0.2}
-              direction="right"
-              inView
-              className="relative"
-            >
+            <div key={aslab.date} className="relative">
               <div
                 aria-hidden="true"
                 className={cn(
@@ -52,19 +45,16 @@ export default function AsistenLab() {
                 <p className="text-sm">{aslab.anggota.length} Anggota</p>
                 <p className="block text-xl">ASLAB {aslab.date}</p>
               </Button>
-            </BlurFade>
+            </div>
           ))}
         </div>
 
         <div className="grid grid-cols-1 gap-x-5 gap-y-8 px-4 sm:px-6 lg:px-8 sm:grid-cols-2 md:grid-cols-3 lg:col-span-3">
           {member[activeTab].anggota
             .toSorted((a, b) => a.name.localeCompare(b.name))
-            .map((person, index) => (
-              <BlurFade
+            .map((person) => (
+              <article
                 key={person.name}
-                delay={0.45 + index * 0.1}
-                direction="up"
-                inView
                 className="relative isolate flex flex-col justify-end overflow-hidden rounded-xl bg-static-900 px-6 pt-80 pb-6 sm:pt-48 lg:pt-64 dark:bg-static-800"
               >
                 <Image
@@ -82,7 +72,7 @@ export default function AsistenLab() {
                   {person.name}
                 </h3>
                 <p className="text-static-200 mt-2">Asisten Lab</p>
-              </BlurFade>
+              </article>
             ))}
         </div>
       </div>
