@@ -1,6 +1,5 @@
 import { Container } from "@/components/container";
 import { SectionHeader } from "@/components/heading";
-import { BlurFade } from "@/components/ui/blur-fade";
 import { Button } from "@/components/ui/button";
 import { RecruitmentCard } from "@/components/ui/recruitment-card";
 import { Separator } from "@/components/ui/separator";
@@ -31,14 +30,11 @@ export const recruitment: RecruitmentData[] = [
     },
     dialog: {
       title: "Asisten Laboratorium",
-      description:
-        "Kesempatan menjadi bagian dari tim laboratorium periode 2025 – 2026",
+      description: "Kesempatan menjadi bagian dari tim laboratorium periode 2025 – 2026",
       content: (
         <>
           <div className="w-full text-base-foreground-400 text-base/7">
-            <h3 className="scroll-m-20 text-lg font-semibold tracking-tight text-base-foreground-200">
-              Persyaratan
-            </h3>
+            <h3 className="scroll-m-20 text-lg font-semibold tracking-tight text-base-foreground-200">Persyaratan</h3>
             <ul className="mt-3 mb-6 ml-6 list-disc [&>li]:mt-2">
               <li>Mahasiswa aktif semester 3 &ndash; 5.</li>
               <li>IPK minimal 3.00.</li>
@@ -48,9 +44,7 @@ export const recruitment: RecruitmentData[] = [
           </div>
 
           <div className="w-full text-base-foreground-400 text-base/7">
-            <h3 className="scroll-m-20 text-lg font-semibold tracking-tight text-base-foreground-200">
-              Benefit
-            </h3>
+            <h3 className="scroll-m-20 text-lg font-semibold tracking-tight text-base-foreground-200">Benefit</h3>
             <ul className="mt-3 mb-6 ml-6 list-disc [&>li]:mt-2">
               <li>Menambah value untuk pengalaman kerja.</li>
               <li>Kesempatan mengembangkan softskill dan hardskill.</li>
@@ -61,9 +55,7 @@ export const recruitment: RecruitmentData[] = [
           <Separator />
 
           <div>
-            <Button size="lg" disabled>
-              Pendaftaran Ditutup
-            </Button>
+            <Button size="lg" disabled>Pendaftaran Ditutup</Button>
           </div>
         </>
       ),
@@ -87,20 +79,14 @@ export default function Page() {
         className="grid grid-cols-1 gap-6 my-10 px-4 py-10 sm:px-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:px-8"
       >
         {recruitment.map((item, index) => (
-          <BlurFade
-            key={item.name}
-            delay={0.45 + index * 0.15}
-            direction="up"
-            inView
-          >
-            <RecruitmentCard
-              poster={item.poster}
-              name={item.name}
-              dateFrom={item.date.from}
-              dateTo={item.date.to}
-              dialog={item.dialog}
-            />
-          </BlurFade>
+          <RecruitmentCard
+            key={index}
+            poster={item.poster}
+            name={item.name}
+            dateFrom={item.date.from}
+            dateTo={item.date.to}
+            dialog={item.dialog}
+          />
         ))}
       </Container>
     </>
