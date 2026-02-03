@@ -1,3 +1,5 @@
+import { BlurFade } from "@/components/ui/blur-fade";
+import { TextAnimate } from "@/components/ui/text-animate";
 import { Check, Info, SearchCheck, User } from "lucide-react";
 
 type NestedItem = {
@@ -58,14 +60,31 @@ export default function Page() {
 
   return (
     <div className="w-full my-28 py-8 px-4 sm:px-6 lg:px-8">
-      <p className="text-base/7 font-semibold text-base-foreground-300">
+      <TextAnimate
+        animation="blurInUp"
+        by="character"
+        once
+        className="text-base/7 font-semibold text-base-foreground-300"
+      >
         Standar Operasional Prosedur
-      </p>
-      <h1 className="mt-2 scroll-m-20 text-4xl font-semibold tracking-tight text-balance text-base-foreground-100 sm:text-5xl">
+      </TextAnimate>
+      <TextAnimate
+        animation="blurIn"
+        as="h1"
+        once
+        delay={0.25}
+        className="mt-2 scroll-m-20 text-4xl font-semibold tracking-tight text-balance text-base-foreground-100 sm:text-5xl"
+      >
         Laboratorium Komputer Program Studi Teknik Informatika Fakultas Teknik
         &ndash; Universitas Pamulang
-      </h1>
-      <p className="mt-6 text-base-foreground-300 text-xl/8">
+      </TextAnimate>
+      <TextAnimate
+        animation="blurInUp"
+        by="character"
+        once
+        delay={0.45}
+        className="mt-6 text-base-foreground-300 text-xl/8"
+      >
         Tujuan disusunnya standar operasional prosedur laboratorium Komputer
         adalah untuk membantu memperlancar pengelolaan laboratorium Komputer
         guna memaksimalkan kegunaan dari laboratorium Komputer beserta semua
@@ -74,56 +93,89 @@ export default function Page() {
         dalam lingkup pengelolaan laboratorium Komputer meliputi praktikum,
         penggunaan peralatan laboratorium Komputer, penggunaan laboratorium
         Komputer untuk penelitian, simulasi atau sejenisnya.
-      </p>
+      </TextAnimate>
 
       <div className="mt-10 max-w-4xl text-base-foreground-300">
         <section>
-          <h2 className="mt-10 scroll-m-20 text-3xl font-semibold tracking-tight text-pretty text-base-foreground-100">
+          <TextAnimate
+            animation="blurIn"
+            as="h2"
+            once
+            delay={0.25}
+            className="mt-10 scroll-m-20 text-3xl font-semibold tracking-tight text-pretty text-base-foreground-100"
+          >
             Fungsi dan Struktur Laboratorium
-          </h2>
+          </TextAnimate>
 
           <div className="py-4 my-4">
             <div>
-              <h3 className="scroll-m-20 text-2xl text-base-foreground-200 font-semibold tracking-tight">
+              <TextAnimate
+                animation="blurIn"
+                as="h3"
+                once
+                className="scroll-m-20 text-2xl text-base-foreground-200 font-semibold tracking-tight"
+              >
                 Fungsi
-              </h3>
-              <p className="text-base/7 mt-3">
+              </TextAnimate>
+              <TextAnimate
+                animation="blurInUp"
+                by="character"
+                once
+                delay={0.2}
+                className="text-base/7 mt-3"
+              >
                 Fungsi utama dari laboratorium Komputer sebagai sarana untuk
                 melakukan praktik atau penerapan atas teori, penelitian dan
                 pengembangan keilmuan di Program Studi Teknik Informatika,
                 sehingga menjadi unsur penting dalam kegiatan pendidikan dan
                 penelitian, khususnya di bidang pembelajaran.
-              </p>
-              <ul className="text-base/7 text-base-foreground-300 my-5 [&>li]:mt-3">
+              </TextAnimate>
+
+              <ul className="text-base/7 text-base-foreground-300 my-5 [&>div]:mt-3">
                 {[
                   "Pusat praktik, latihan, penelitian, tugas akhir dan sumber pembelajaran bagi dosen dan mahasiswa Program Studi Teknik Informatika",
                   "Pusat penelitian, pengabdian masyarakat dan pengembangan bagi dosen dan mahasiswa Program Studi Teknik Informatika.",
                   "Pusat pengembangan keilmuan seperti Basis Data, Algoritma dan Pemrograman, Struktur Data, dan Jaringan komputer pada Program Studi Teknik Informatika.",
                 ].map((list, index) => (
-                  <li
+                  <BlurFade
                     key={list}
-                    className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:gap-x-5 sm:rounded-xl"
+                    delay={0.25 + index * 0.15}
+                    direction="up"
+                    inView
                   >
-                    <span className="shrink-0 inline-flex justify-center items-center size-10 mt-1 rounded-full bg-blue-50 font-medium text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30 sm:text-lg sm:size-12">
-                      {index + 1}
-                    </span>
-                    <p>{list}</p>
-                  </li>
+                    <li className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:gap-x-5 sm:rounded-xl">
+                      <span className="shrink-0 inline-flex justify-center items-center size-10 mt-1 rounded-full bg-blue-50 font-medium text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30 sm:text-lg sm:size-12">
+                        {index + 1}
+                      </span>
+                      <p>{list}</p>
+                    </li>
+                  </BlurFade>
                 ))}
               </ul>
             </div>
 
             <div className="w-full mt-16">
-              <h3 className="scroll-m-20 text-2xl text-base-foreground-200 font-semibold tracking-tight">
+              <TextAnimate
+                animation="blurIn"
+                as="h3"
+                once
+                className="scroll-m-20 text-2xl text-base-foreground-200 font-semibold tracking-tight"
+              >
                 Struktur Laboratorium
-              </h3>
-              <p className="text-base/7 mt-3">
+              </TextAnimate>
+              <TextAnimate
+                animation="blurInUp"
+                by="character"
+                once
+                delay={0.25}
+                className="text-base/7 mt-3"
+              >
                 Struktur laboratorium Program Studi Teknik Informatika terdiri
                 atas Ketua Laboratorium, Laboran, Asisten Praktikum dan Peserta
                 Praktikum.
-              </p>
+              </TextAnimate>
 
-              <ul className="text-base/7 text-base-foreground-300 my-5 [&>li]:mt-3">
+              <ul className="text-base/7 text-base-foreground-300 my-5 [&>div]:mt-3">
                 {[
                   "Pembina adalah Ketua Program Studi yang berperan memberikan arahan dalam pengembangan serta pelaksanaan kegiatan laboratorium.",
                   "Kepala Laboratorium bertugas mengelola laboratorium dengan memanfaatkan seluruh sumber daya secara terencana, terkontrol, dan berkelanjutan.",
@@ -131,15 +183,19 @@ export default function Page() {
                   "Dosen bertugas melaksanakan kegiatan pengajaran di dalam laboratorium.",
                   "Mahasiswa adalah peserta praktikum yang telah terdaftar pada mata kuliah terkait di semester berjalan.",
                 ].map((list, index) => (
-                  <li
+                  <BlurFade
                     key={list}
-                    className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:gap-x-5 sm:rounded-xl"
+                    delay={0.25 + index * 0.15}
+                    direction="up"
+                    inView
                   >
-                    <span className="shrink-0 inline-flex justify-center items-center size-10 mt-1 rounded-full bg-blue-50 font-medium text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30 sm:text-lg sm:size-12">
-                      {index + 1}
-                    </span>
-                    <p>{list}</p>
-                  </li>
+                    <li className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:gap-x-5 sm:rounded-xl">
+                      <span className="shrink-0 inline-flex justify-center items-center size-10 mt-1 rounded-full bg-blue-50 font-medium text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30 sm:text-lg sm:size-12">
+                        {index + 1}
+                      </span>
+                      <p>{list}</p>
+                    </li>
+                  </BlurFade>
                 ))}
               </ul>
             </div>
@@ -147,20 +203,37 @@ export default function Page() {
         </section>
 
         <section>
-          <h2 className="scroll-m-20 text-3xl text-base-foreground-100 font-semibold tracking-tight first:mt-0">
+          <TextAnimate
+            animation="blurIn"
+            as="h2"
+            once
+            delay={0.25}
+            className="scroll-m-20 text-3xl text-base-foreground-100 font-semibold tracking-tight first:mt-0"
+          >
             Tata Tertib Laboratorium
-          </h2>
-          <p className="text-base/7 text-base-foreground-300 mt-3 mb-6">
+          </TextAnimate>
+          <TextAnimate
+            animation="blurInUp"
+            by="character"
+            once
+            delay={0.25}
+            className="text-base/7 text-base-foreground-300 mt-3 mb-6"
+          >
             Tata Tertib yang berlaku di Laboratorium Komputer Program Studi
             Teknik Informatika sebagai berikut:
-          </p>
+          </TextAnimate>
 
           <div className="space-y-5">
             <div className="mt-8">
-              <h3 className="scroll-m-20 text-2xl text-base-foreground-200 font-semibold tracking-tight">
+              <TextAnimate
+                animation="blurIn"
+                as="h3"
+                once
+                className="scroll-m-20 text-2xl text-base-foreground-200 font-semibold tracking-tight"
+              >
                 Tata Tertib Penggunaan Laboratorium Komputer
-              </h3>
-              <ul className="text-base/7 text-base-foreground-300 my-6 [&>li]:mt-3">
+              </TextAnimate>
+              <ul className="text-base/7 text-base-foreground-300 my-6 [&>div]:mt-3">
                 {[
                   "Mahasiswa atau dosen wajib mengisi buku kunjungan laboratorium di luar jadwal praktikum",
                   "Mahasiswa atau dosen yang meminjam peralatan laboratorium wajib mengikuti ketentuan peminjaman dan pengembalian",
@@ -174,26 +247,38 @@ export default function Page() {
                   "Setiap pengguna laboratorium wajib menjaga keamanan inventaris laboratorium",
                   "Apabila terjadi kerusakan, pengguna wajib melapor dan mengganti peralatan tersebut",
                   "Apabila tidak ada yang mengakui kerusakan, seluruh pengguna wajib mengganti peralatan",
-                ].map((list) => (
-                  <li
-                    key={list}
-                    className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:items-center sm:gap-x-5 sm:rounded-xl"
+                ].map((list, index) => (
+                  <BlurFade
+                    key={index}
+                    delay={0.25 + index * 0.15}
+                    direction="up"
+                    inView
                   >
-                    <span className="shrink-0 inline-flex justify-center items-center size-10 mt-1 p-3 rounded-full bg-green-50 text-green-700 inset-ring inset-ring-green-600/20 dark:bg-green-400/10 dark:text-green-400 dark:inset-ring-green-500/20 sm:size-12">
-                      <Check className="size-full" />
-                    </span>
-                    <p>{list}</p>
-                  </li>
+                    <li
+                      key={list}
+                      className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:items-center sm:gap-x-5 sm:rounded-xl"
+                    >
+                      <span className="shrink-0 inline-flex justify-center items-center size-10 mt-1 p-3 rounded-full bg-green-50 text-green-700 inset-ring inset-ring-green-600/20 dark:bg-green-400/10 dark:text-green-400 dark:inset-ring-green-500/20 sm:size-12">
+                        <Check className="size-full" />
+                      </span>
+                      <p>{list}</p>
+                    </li>
+                  </BlurFade>
                 ))}
               </ul>
             </div>
 
             <div className="my-10">
-              <h3 className="scroll-m-20 text-2xl text-base-foreground-200 font-semibold tracking-tight">
+              <TextAnimate
+                animation="blurIn"
+                as="h3"
+                once
+                className="scroll-m-20 text-2xl text-base-foreground-200 font-semibold tracking-tight"
+              >
                 Tata Tertib Praktek Laboratorium
-              </h3>
+              </TextAnimate>
 
-              <ul className="text-base/7 text-base-foreground-300 my-6 [&>li]:mt-3">
+              <ul className="text-base/7 text-base-foreground-300 my-6 [&>div]:mt-3">
                 {[
                   "Setiap mahasiswa wajib mengikuti kegiatan praktikum",
                   "Mahasiswa wajib berpakaian sopan dan rapi saat berada di dalam laboratorium",
@@ -210,16 +295,23 @@ export default function Page() {
                   "Setiap pengguna dilarang bermain game atau melakukan aktivitas tidak berkaitan",
                   "Setiap pengguna dilarang melakukan tindakan yang dapat merusak fasilitas laboratorium",
                   "Penggunaan laboratorium harus sesuai dengan jadwal yang telah ditentukan",
-                ].map((list) => (
-                  <li
-                    key={list}
-                    className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:items-center sm:gap-x-4 sm:rounded-xl"
+                ].map((list, index) => (
+                  <BlurFade
+                    key={index}
+                    delay={0.25 + index * 0.15}
+                    direction="up"
+                    inView
                   >
-                    <span className="shrink-0 inline-flex justify-center items-center size-8 mt-1 p-2 rounded-full bg-green-50 text-green-700 inset-ring inset-ring-green-600/20 dark:bg-green-400/10 dark:text-green-400 dark:inset-ring-green-500/20">
-                      <Check className="size-full" />
-                    </span>
-                    <p>{list}</p>
-                  </li>
+                    <li
+                      key={list}
+                      className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:items-center sm:gap-x-4 sm:rounded-xl"
+                    >
+                      <span className="shrink-0 inline-flex justify-center items-center size-8 mt-1 p-2 rounded-full bg-green-50 text-green-700 inset-ring inset-ring-green-600/20 dark:bg-green-400/10 dark:text-green-400 dark:inset-ring-green-500/20">
+                        <Check className="size-full" />
+                      </span>
+                      <p>{list}</p>
+                    </li>
+                  </BlurFade>
                 ))}
               </ul>
             </div>
@@ -227,23 +319,40 @@ export default function Page() {
         </section>
 
         <section>
-          <h2 className="scroll-m-20 text-3xl text-base-foreground-100 font-semibold tracking-tight first:mt-0">
+          <TextAnimate
+            animation="blurIn"
+            as="h2"
+            once
+            delay={0.25}
+            className="scroll-m-20 text-3xl text-base-foreground-100 font-semibold tracking-tight first:mt-0"
+          >
             Prosedur Pemakaian Laboratorium untuk Praktikum Mata Kuliah
             Persiapan
-          </h2>
+          </TextAnimate>
 
           <div className="mt-6">
             <div>
-              <h3 className="scroll-m-20 text-2xl text-base-foreground-200 font-semibold tracking-tight">
+              <TextAnimate
+                animation="blurIn"
+                as="h3"
+                once
+                className="scroll-m-20 text-2xl text-base-foreground-200 font-semibold tracking-tight"
+              >
                 Persiapan
-              </h3>
+              </TextAnimate>
 
-              <p className="text-base/7 text-base-foreground-300 mt-2">
+              <TextAnimate
+                animation="blurInUp"
+                by="character"
+                once
+                delay={0.25}
+                className="text-base/7 text-base-foreground-300 mt-2"
+              >
                 Sebelum praktikum dilaksanakan, tahap-tahap yang harus dilakukan
                 adalah:
-              </p>
+              </TextAnimate>
 
-              <ul className="text-base/7 text-base-foreground-300 mt-3 mb-6 [&>li]:mt-3">
+              <ul className="text-base/7 text-base-foreground-300 mt-3 mb-6 [&>div]:mt-3">
                 {[
                   {
                     title:
@@ -258,115 +367,179 @@ export default function Page() {
                   "Laboran/Teknisi menyiapkan jadwal pelaksanaan, software yang diperlukan dan berkoordinasi dengan Ketua Laboratorium/Dosen yang bersangkutan",
                 ].map((list, index) =>
                   typeof list === "object" ? (
-                    <li
+                    <BlurFade
                       key={index}
-                      className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:gap-x-5 sm:rounded-xl"
+                      delay={0.25 + index * 0.15}
+                      direction="up"
+                      inView
                     >
-                      <span className="shrink-0 inline-flex justify-center items-center size-9 mt-1 p-2.5 rounded-full bg-blue-50 text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30">
-                        <User className="size-full" />
-                      </span>
-                      <div>
-                        {list.title}
-                        <ul className="text-base/7 text-base-foreground-300 my-4 ml-6 [&>li]:mt-2">
-                          {list.items.map((subItem, subIndex) => (
-                            <li key={subIndex} className="flex gap-x-3">
-                              <span className="shrink-0 inline-flex justify-center items-center mt-1.5 size-4 rounded-full bg-static-50 text-[0.5rem] font-medium text-static-600 ring-1 ring-inset ring-static-500/10 dark:bg-static-400/10 dark:text-static-400 dark:ring-static-400/20">
-                                {subIndex + 1}
-                              </span>
-                              {subItem}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </li>
-                  ) : (
-                    <li
-                      key={list}
-                      className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:gap-x-5 sm:rounded-xl"
-                    >
-                      <span className="shrink-0 inline-flex justify-center items-center size-9 mt-1 p-2.5 rounded-full bg-blue-50 text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30">
-                        <User className="size-full" />
-                      </span>
-                      <p>{list}</p>
-                    </li>
-                  ),
-                )}
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="scroll-m-20 text-2xl text-base-foreground-200 font-semibold tracking-tight">
-                Pelaksanaan
-              </h3>
-
-              <p className="text-base/7 text-base-foreground-300 mt-2">
-                Pada saat praktikum dilaksanakan, tahap-tahap yang harus
-                dilakukan adalah:
-              </p>
-
-              <ul className="text-base/7 text-base-foreground-300 my-6 [&>li]:mt-3">
-                {data.map((list, index) => {
-                  if (typeof list === "string") {
-                    return <li key={index}>{list}</li>;
-                  }
-
-                  return (
-                    <li
-                      key={index}
-                      className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:gap-x-5 sm:rounded-xl"
-                    >
-                      <span className="shrink-0 inline-flex justify-center items-center size-9 mt-1 p-2.5 rounded-full bg-blue-50 text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30">
-                        <User className="size-full" />
-                      </span>
-                      <div>
-                        {list.title}
-                        <ul className="text-base/7 text-base-foreground-300 my-4 ml-6 list-decimal [&>li]:mt-3">
-                          {list.items.map((subItem, subIndex) => {
-                            if (typeof subItem === "string") {
-                              return (
+                      <li className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:gap-x-5 sm:rounded-xl">
+                        <span className="shrink-0 inline-flex justify-center items-center size-9 mt-1 p-2.5 rounded-full bg-blue-50 text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30">
+                          <User className="size-full" />
+                        </span>
+                        <div>
+                          {list.title}
+                          <ul className="text-base/7 text-base-foreground-300 my-4 ml-6 [&>div]:mt-2">
+                            {list.items.map((subItem, subIndex) => (
+                              <BlurFade
+                                key={subIndex}
+                                delay={0.25 + subIndex * 0.15}
+                                direction="up"
+                                inView
+                              >
                                 <li key={subIndex} className="flex gap-x-3">
                                   <span className="shrink-0 inline-flex justify-center items-center mt-1.5 size-4 rounded-full bg-static-50 text-[0.5rem] font-medium text-static-600 ring-1 ring-inset ring-static-500/10 dark:bg-static-400/10 dark:text-static-400 dark:ring-static-400/20">
                                     {subIndex + 1}
                                   </span>
                                   {subItem}
                                 </li>
-                              );
-                            }
+                              </BlurFade>
+                            ))}
+                          </ul>
+                        </div>
+                      </li>
+                    </BlurFade>
+                  ) : (
+                    <BlurFade
+                      key={index}
+                      delay={0.25 + index * 0.15}
+                      direction="up"
+                      inView
+                    >
+                      <li
+                        key={list}
+                        className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:gap-x-5 sm:rounded-xl"
+                      >
+                        <span className="shrink-0 inline-flex justify-center items-center size-9 mt-1 p-2.5 rounded-full bg-blue-50 text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30">
+                          <User className="size-full" />
+                        </span>
+                        <p>{list}</p>
+                      </li>
+                    </BlurFade>
+                  ),
+                )}
+              </ul>
+            </div>
 
-                            return (
-                              <li
-                                key={`${index}-${subIndex}`}
-                                className="flex gap-x-3"
-                              >
-                                <span className="shrink-0 inline-flex justify-center items-center mt-1.5 size-4 rounded-full bg-static-50 text-[0.5rem] font-medium text-static-600 ring-1 ring-inset ring-static-500/10 dark:bg-static-400/10 dark:text-static-400 dark:ring-static-400/20">
-                                  {subIndex + 1}
-                                </span>
-                                <div className="flex gap-x-3">
-                                  <div>
-                                    {subItem.title}
-                                    <ul className="text-base/7 text-base-foreground-300 my-4 ml-6 [&>li]:mt-2">
-                                      {subItem.subItems.map(
-                                        (nestedItem, nestedIndex) => (
-                                          <li
-                                            key={`${index}-${subIndex}-${nestedIndex}`}
-                                            className="flex gap-x-3"
-                                          >
-                                            <span className="shrink-0 inline-flex justify-center items-center mt-1.5 size-4 p-1 rounded-full bg-green-50 text-green-700 inset-ring inset-ring-green-600/20 dark:bg-green-400/10 dark:text-green-400 dark:inset-ring-green-500/20">
-                                              <Check />
-                                            </span>
-                                            {nestedItem}
-                                          </li>
-                                        ),
-                                      )}
-                                    </ul>
-                                  </div>
-                                </div>
-                              </li>
-                            );
-                          })}
-                        </ul>
-                      </div>
-                    </li>
+            <div>
+              <TextAnimate
+                animation="blurIn"
+                as="h3"
+                once
+                className="scroll-m-20 text-2xl text-base-foreground-200 font-semibold tracking-tight"
+              >
+                Pelaksanaan
+              </TextAnimate>
+
+              <TextAnimate
+                animation="blurInUp"
+                by="character"
+                once
+                delay={0.25}
+                className="text-base/7 text-base-foreground-300 mt-2"
+              >
+                Pada saat praktikum dilaksanakan, tahap-tahap yang harus
+                dilakukan adalah:
+              </TextAnimate>
+
+              <ul className="text-base/7 text-base-foreground-300 my-6 [&>div]:mt-3">
+                {data.map((list, index) => {
+                  if (typeof list === "string") {
+                    return (
+                      <BlurFade
+                        key={index}
+                        delay={0.25 + index * 0.15}
+                        direction="up"
+                        inView
+                      >
+                        <li key={index} className="flex gap-x-3.5">
+                          <span className="shrink-0 inline-flex justify-center items-center size-9 mt-1 p-2.5 rounded-full bg-blue-50 text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30">
+                            <User className="size-full" />
+                          </span>
+                          {list}
+                        </li>
+                      </BlurFade>
+                    );
+                  }
+
+                  return (
+                    <BlurFade
+                      key={index}
+                      delay={0.25 + index * 0.15}
+                      direction="up"
+                      inView
+                    >
+                      <li className="flex gap-x-3.5">
+                        <span className="shrink-0 inline-flex justify-center items-center size-9 mt-1 p-2.5 rounded-full bg-blue-50 text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30">
+                          <User className="size-full" />
+                        </span>
+                        <div>
+                          {list.title}
+                          <ul className="text-base/7 text-base-foreground-300 my-4 ml-6 list-decimal [&>div]:mt-3">
+                            {list.items.map((subItem, subIndex) => {
+                              if (typeof subItem === "string") {
+                                return (
+                                  <BlurFade
+                                    key={subIndex}
+                                    delay={0.35 + subIndex * 0.15}
+                                    direction="up"
+                                    inView
+                                  >
+                                    <li className="flex gap-x-3">
+                                      <span className="shrink-0 inline-flex justify-center items-center mt-1.5 size-4 rounded-full bg-static-50 text-[0.5rem] font-medium text-static-600 ring-1 ring-inset ring-static-500/10 dark:bg-static-400/10 dark:text-static-400 dark:ring-static-400/20">
+                                        {subIndex + 1}
+                                      </span>
+                                      {subItem}
+                                    </li>
+                                  </BlurFade>
+                                );
+                              }
+
+                              return (
+                                <BlurFade
+                                  key={`${index}-${subIndex}`}
+                                  delay={0.25 + subIndex * 0.15}
+                                  direction="up"
+                                  inView
+                                >
+                                  <li className="flex gap-x-3">
+                                    <span className="shrink-0 inline-flex justify-center items-center mt-1.5 size-4 rounded-full bg-static-50 text-[0.5rem] font-medium text-static-600 ring-1 ring-inset ring-static-500/10 dark:bg-static-400/10 dark:text-static-400 dark:ring-static-400/20">
+                                      {subIndex + 1}
+                                    </span>
+                                    <div className="flex gap-x-3">
+                                      <div>
+                                        {subItem.title}
+                                        <ul className="text-base/7 text-base-foreground-300 my-4 ml-6 [&>div]:mt-2">
+                                          {subItem.subItems.map(
+                                            (nestedItem, nestedIndex) => (
+                                              <BlurFade
+                                                key={`${index}-${subIndex}-${nestedIndex}`}
+                                                delay={
+                                                  0.35 + nestedIndex * 0.15
+                                                }
+                                                direction="up"
+                                                inView
+                                              >
+                                                <li className="flex gap-x-3">
+                                                  <span className="shrink-0 inline-flex justify-center items-center mt-1.5 size-4 p-1 rounded-full bg-green-50 text-green-700 inset-ring inset-ring-green-600/20 dark:bg-green-400/10 dark:text-green-400 dark:inset-ring-green-500/20">
+                                                    <Check />
+                                                  </span>
+                                                  {nestedItem}
+                                                </li>
+                                              </BlurFade>
+                                            ),
+                                          )}
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </li>
+                                </BlurFade>
+                              );
+                            })}
+                          </ul>
+                        </div>
+                      </li>
+                    </BlurFade>
                   );
                 })}
               </ul>
@@ -375,24 +548,41 @@ export default function Page() {
         </section>
 
         <section className="mt-8">
-          <h2 className="scroll-m-20 text-3xl text-base-foreground-100 font-semibold tracking-tight first:mt-0">
+          <TextAnimate
+            animation="blurIn"
+            as="h2"
+            once
+            delay={0.25}
+            className="scroll-m-20 text-3xl text-base-foreground-100 font-semibold tracking-tight first:mt-0"
+          >
             Prosedur Pemakaian Laboratorium untuk Pelaksanaan Penelitian dan
             Tugas Akhir Mahasiswa
-          </h2>
+          </TextAnimate>
 
           <div className="my-5">
             <div>
-              <h3 className="scroll-m-20 text-2xl text-base-foreground-200 font-semibold mt-8 mb-4 tracking-tight">
+              <TextAnimate
+                animation="blurIn"
+                as="h3"
+                once
+                className="scroll-m-20 text-2xl text-base-foreground-200 font-semibold mt-8 mb-4 tracking-tight"
+              >
                 Mahasiswa
-              </h3>
-              <p className="text-base/7 text-base-foreground-300">
+              </TextAnimate>
+              <TextAnimate
+                animation="blurInUp"
+                by="character"
+                once
+                delay={0.25}
+                className="text-base/7 text-base-foreground-300"
+              >
                 Jika seorang dosen akan melaksanakan penelitian yang dalam
                 pelaksanaannya akan menggunakan sarana prasarana Laboratorium
                 dan melibatkan mahasiswa, maka tahap-tahap yang harus dilakukan
                 adalah:
-              </p>
+              </TextAnimate>
 
-              <ul className="text-base/7 text-base-foreground-300 my-6 [&>li]:mt-3">
+              <ul className="text-base/7 text-base-foreground-300 my-6 [&>div]:mt-3">
                 {[
                   {
                     title:
@@ -406,53 +596,79 @@ export default function Page() {
                   "Laboran/Teknisi menyiapkan jadwal pelaksanaan, software yang diperlukan dan berkoordinasi dengan Ketua Laboratorium/Dosen yang bersangkutan",
                 ].map((list, index) =>
                   typeof list === "object" ? (
-                    <li
+                    <BlurFade
                       key={index}
-                      className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:gap-x-5 sm:rounded-xl"
+                      delay={0.25 + index * 0.15}
+                      direction="up"
+                      inView
                     >
-                      <span className="shrink-0 inline-flex justify-center items-center size-9 mt-1 p-2.5 rounded-full bg-blue-50 text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30">
-                        <User className="size-full" />
-                      </span>
-                      <div>
-                        {list.title}
-                        <ul className="text-base/7 text-base-foreground-300 my-4 [&>li]:mt-2">
-                          {list.items.map((subItem, subIndex) => (
-                            <li key={subIndex} className="flex gap-x-3">
-                              <span className="shrink-0 inline-flex justify-center items-center mt-1.5 size-4 rounded-full bg-static-50 text-[0.5rem] font-medium text-static-600 ring-1 ring-inset ring-static-500/10 dark:bg-static-400/10 dark:text-static-400 dark:ring-static-400/20">
-                                {subIndex + 1}
-                              </span>
-                              {subItem}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </li>
+                      <li className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:gap-x-5 sm:rounded-xl">
+                        <span className="shrink-0 inline-flex justify-center items-center size-9 mt-1 p-2.5 rounded-full bg-blue-50 text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30">
+                          <User className="size-full" />
+                        </span>
+                        <div>
+                          {list.title}
+                          <ul className="text-base/7 text-base-foreground-300 my-4 [&>div]:mt-2">
+                            {list.items.map((subItem, subIndex) => (
+                              <BlurFade
+                                key={subIndex}
+                                delay={0.25 + subIndex * 0.15}
+                                direction="up"
+                                inView
+                              >
+                                <li className="flex gap-x-3">
+                                  <span className="shrink-0 inline-flex justify-center items-center mt-1.5 size-4 rounded-full bg-static-50 text-[0.5rem] font-medium text-static-600 ring-1 ring-inset ring-static-500/10 dark:bg-static-400/10 dark:text-static-400 dark:ring-static-400/20">
+                                    {subIndex + 1}
+                                  </span>
+                                  {subItem}
+                                </li>
+                              </BlurFade>
+                            ))}
+                          </ul>
+                        </div>
+                      </li>
+                    </BlurFade>
                   ) : (
-                    <li
-                      key={list}
-                      className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:gap-x-5 sm:rounded-xl"
+                    <BlurFade
+                      key={index}
+                      delay={0.25 + index * 0.15}
+                      direction="up"
+                      inView
                     >
-                      <span className="shrink-0 inline-flex justify-center items-center size-9 mt-1 p-2.5 rounded-full bg-blue-50 text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30">
-                        <User className="size-full" />
-                      </span>
-                      <p>{list}</p>
-                    </li>
+                      <li className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:gap-x-5 sm:rounded-xl">
+                        <span className="shrink-0 inline-flex justify-center items-center size-9 mt-1 p-2.5 rounded-full bg-blue-50 text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30">
+                          <User className="size-full" />
+                        </span>
+                        <p>{list}</p>
+                      </li>
+                    </BlurFade>
                   ),
                 )}
               </ul>
             </div>
 
             <div className="my-10">
-              <h3 className="scroll-m-20 text-2xl text-base-foreground-200 font-semibold tracking-tight">
+              <TextAnimate
+                animation="blurIn"
+                as="h3"
+                once
+                className="scroll-m-20 text-2xl text-base-foreground-200 font-semibold tracking-tight"
+              >
                 Pelaksanaan
-              </h3>
+              </TextAnimate>
 
-              <p className="text-base/7 text-base-foreground-300 mt-3">
+              <TextAnimate
+                animation="blurInUp"
+                by="character"
+                once
+                delay={0.25}
+                className="text-base/7 text-base-foreground-300 mt-3"
+              >
                 Pada saat penelitian dilaksanakan, tahap-tahap yang harus
                 dilakukan adalah:
-              </p>
+              </TextAnimate>
 
-              <ul className="text-base/7 text-base-foreground-300 my-6 [&>li]:mt-3">
+              <ul className="text-base/7 text-base-foreground-300 my-6 [&>div]:mt-3">
                 {[
                   "Laboran/teknisi mempersiapkan sarana prasarana Laboratorium Komputer bagi dosen/mahasiswa peneliti.",
                   "Asisten lab/dosen peneliti memastikan bahwa komputer dan sarana/prasarana pendukung siap digunakan.",
@@ -495,90 +711,124 @@ export default function Page() {
                   },
                 ].map((list, index) =>
                   typeof list === "object" ? (
-                    <li
+                    <BlurFade
                       key={index}
-                      className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:gap-x-5 sm:rounded-xl"
+                      delay={0.25 + index * 0.15}
+                      direction="up"
+                      inView
                     >
-                      <span className="shrink-0 inline-flex justify-center items-center size-9 p-2.5 rounded-full bg-blue-50 text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30">
-                        <User className="size-full" />
-                      </span>
-                      <div>
-                        {list.title}
-                        <ul className="text-base/7 text-base-foreground-300 my-4 [&>li]:mt-3">
-                          {list.items.map((subItem, subIndex) => (
-                            <li
-                              key={`${index}-${subIndex}`}
-                              className="flex gap-x-3"
-                            >
-                              <span className="shrink-0 inline-flex justify-center items-center mt-1.5 size-4 rounded-full bg-static-50 text-[0.5rem] font-medium text-static-600 ring-1 ring-inset ring-static-500/10 dark:bg-static-400/10 dark:text-static-400 dark:ring-static-400/20">
-                                {subIndex + 1}
-                              </span>
-                              {subItem.subItems ? (
-                                <div>
-                                  {subItem.title}
-                                  <ul className="text-base/7 text-base-foreground-300 my-4 ml-6 [&>li]:mt-2">
-                                    {subItem.subItems.map(
-                                      (nestedItem, nestedIndex) => (
-                                        <li
-                                          key={`${index}-${subIndex}-${nestedIndex}`}
-                                          className="flex gap-x-3"
-                                        >
-                                          <span className="shrink-0 inline-flex justify-center items-center mt-1.5 size-4 p-1 rounded-full bg-green-50 text-green-700 inset-ring inset-ring-green-600/20 dark:bg-green-400/10 dark:text-green-400 dark:inset-ring-green-500/20">
-                                            <Check />
-                                          </span>
-                                          {nestedItem}
-                                        </li>
-                                      ),
-                                    )}
-                                  </ul>
-                                </div>
-                              ) : (
-                                subItem.title
-                              )}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </li>
+                      <li className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:gap-x-5 sm:rounded-xl">
+                        <span className="shrink-0 inline-flex justify-center items-center size-9 p-2.5 rounded-full bg-blue-50 text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30">
+                          <User className="size-full" />
+                        </span>
+                        <div>
+                          {list.title}
+                          <ul className="text-base/7 text-base-foreground-300 my-4 [&>div]:mt-3">
+                            {list.items.map((subItem, subIndex) => (
+                              <BlurFade
+                                key={`${index}-${subIndex}`}
+                                delay={0.35 + subIndex * 0.15}
+                                direction="up"
+                                inView
+                              >
+                                <li className="flex gap-x-3">
+                                  <span className="shrink-0 inline-flex justify-center items-center mt-1.5 size-4 rounded-full bg-static-50 text-[0.5rem] font-medium text-static-600 ring-1 ring-inset ring-static-500/10 dark:bg-static-400/10 dark:text-static-400 dark:ring-static-400/20">
+                                    {subIndex + 1}
+                                  </span>
+                                  {subItem.subItems ? (
+                                    <div>
+                                      {subItem.title}
+                                      <ul className="text-base/7 text-base-foreground-300 my-4 ml-6 [&>div]:mt-2">
+                                        {subItem.subItems.map(
+                                          (nestedItem, nestedIndex) => (
+                                            <BlurFade
+                                              key={`${index}-${subIndex}-${nestedIndex}`}
+                                              delay={0.45 + nestedIndex * 0.15}
+                                              direction="up"
+                                              inView
+                                            >
+                                              <li className="flex gap-x-3">
+                                                <span className="shrink-0 inline-flex justify-center items-center mt-1.5 size-4 p-1 rounded-full bg-green-50 text-green-700 inset-ring inset-ring-green-600/20 dark:bg-green-400/10 dark:text-green-400 dark:inset-ring-green-500/20">
+                                                  <Check />
+                                                </span>
+                                                {nestedItem}
+                                              </li>
+                                            </BlurFade>
+                                          ),
+                                        )}
+                                      </ul>
+                                    </div>
+                                  ) : (
+                                    subItem.title
+                                  )}
+                                </li>
+                              </BlurFade>
+                            ))}
+                          </ul>
+                        </div>
+                      </li>
+                    </BlurFade>
                   ) : (
-                    <li
-                      key={list}
-                      className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:items-center sm:gap-x-5 sm:rounded-xl"
+                    <BlurFade
+                      key={index}
+                      delay={0.25 + index * 0.15}
+                      direction="up"
+                      inView
                     >
-                      <span className="shrink-0 inline-flex justify-center items-center size-9 p-2.5 rounded-full bg-blue-50 text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30">
-                        <User className="size-full" />
-                      </span>
-                      <p>{list}</p>
-                    </li>
+                      <li className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:items-center sm:gap-x-5 sm:rounded-xl">
+                        <span className="shrink-0 inline-flex justify-center items-center size-9 p-2.5 rounded-full bg-blue-50 text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30">
+                          <User className="size-full" />
+                        </span>
+                        <p>{list}</p>
+                      </li>
+                    </BlurFade>
                   ),
                 )}
               </ul>
 
-              <p className="text-base/7 text-base-foreground-300">
+              <TextAnimate
+                animation="blurInUp"
+                by="character"
+                once
+                delay={0.25}
+                className="text-base/7 text-base-foreground-300"
+              >
                 Setelah semua aktivitas penelitian selesai dilaksanakan,
                 dosen/mahasiswa diharapkan membuat laporan yang berisi
                 hasil-hasil penelitian (daftar luaran penelitian) yang nantinya
                 akan digunakan sebagai pendukung dokumentasi kegiatan
                 laboratorium.
-              </p>
+              </TextAnimate>
             </div>
           </div>
         </section>
 
         <section>
-          <h2 className="scroll-m-20 text-3xl text-base-foreground-100 font-semibold tracking-tight first:mt-0">
+          <TextAnimate
+            animation="blurIn"
+            as="h2"
+            once
+            delay={0.25}
+            className="scroll-m-20 text-3xl text-base-foreground-100 font-semibold tracking-tight first:mt-0"
+          >
             Prosedur Pemakaian Laboratorium untuk Pelaksanaan Workshop, atau
             Pelatihan
-          </h2>
+          </TextAnimate>
 
-          <p className="text-base/7 text-base-foreground-300 mt-6">
+          <TextAnimate
+            animation="blurInUp"
+            by="character"
+            once
+            delay={0.25}
+            className="text-base/7 text-base-foreground-300 mt-6"
+          >
             Prosedur yang harus dilaksanakan jika tim dosen/mahasiswa akan
             menggunakan sarana prasarana Laboratorium untuk workshop atau
             pelatihan yang pesertanya berasal dari luar Program Studi Teknik
             Informatika adalah:
-          </p>
+          </TextAnimate>
 
-          <ul className="text-base/7 text-base-foreground-300 my-6 [&>li]:mt-3">
+          <ul className="text-base/7 text-base-foreground-300 my-6 [&>div]:mt-3">
             {[
               "Koordinator (dosen/mahasiswa) kegiatan mengajukan permohonan/proposal kepada Ketua Program Studi Teknik Informatika beserta keperluan peminjaman alat/ruangan Laboratorium yang dituju.",
               "Apabila permohonan/proposal tersebut disetujui oleh Ketua Program Studi Teknik Informatika, maka Ketua Program Studi Teknik Informatika akan memberikan disposisi kepada Ketua Laboratorium tentang keperluan pemakaian ruang/lab tersebut.",
@@ -597,53 +847,80 @@ export default function Page() {
               "Setelah semua aktivitas Pelatihan/Workshop selesai dilaksanakan, dosen/mahasiswa koordinator diharapkan membuat laporan kepada Ketua Program Studi Teknik Informatika (tembusan kepada Ketua Laboratorium) yang berisi ringkasan kegiatan yang nantinya akan digunakan sebagai pendukung dokumentasi kegiatan laboratorium.",
             ].map((list, index) =>
               typeof list === "object" ? (
-                <li
+                <BlurFade
                   key={index}
-                  className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:gap-x-5 sm:rounded-xl"
+                  delay={0.25 + index * 0.15}
+                  direction="up"
+                  inView
                 >
-                  <span className="shrink-0 inline-flex justify-center items-center size-9 mt-1 p-2.5 rounded-full bg-blue-50 text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30">
-                    <Info className="size-full" />
-                  </span>
-                  <div>
-                    {list.title}
-                    <ul className="text-base/7 text-base-foreground-300 my-4 [&>li]:mt-2">
-                      {list.items.map((subItem, subIndex) => (
-                        <li key={subIndex} className="flex gap-x-3">
-                          <span className="shrink-0 inline-flex justify-center items-center mt-1.5 size-4 rounded-full bg-static-50 text-[0.5rem] font-medium text-static-600 ring-1 ring-inset ring-static-500/10 dark:bg-static-400/10 dark:text-static-400 dark:ring-static-400/20">
-                            {subIndex + 1}
-                          </span>
-                          {subItem}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </li>
+                  <li className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:gap-x-5 sm:rounded-xl">
+                    <span className="shrink-0 inline-flex justify-center items-center size-9 mt-1 p-2.5 rounded-full bg-blue-50 text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30">
+                      <Info className="size-full" />
+                    </span>
+                    <div>
+                      {list.title}
+                      <ul className="text-base/7 text-base-foreground-300 my-4 [&>div]:mt-2">
+                        {list.items.map((subItem, subIndex) => (
+                          <BlurFade
+                            key={subIndex}
+                            delay={0.25 + subIndex * 0.15}
+                            direction="up"
+                            inView
+                          >
+                            <li className="flex gap-x-3">
+                              <span className="shrink-0 inline-flex justify-center items-center mt-1.5 size-4 rounded-full bg-static-50 text-[0.5rem] font-medium text-static-600 ring-1 ring-inset ring-static-500/10 dark:bg-static-400/10 dark:text-static-400 dark:ring-static-400/20">
+                                {subIndex + 1}
+                              </span>
+                              {subItem}
+                            </li>
+                          </BlurFade>
+                        ))}
+                      </ul>
+                    </div>
+                  </li>
+                </BlurFade>
               ) : (
-                <li
-                  key={list}
-                  className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:gap-x-5 sm:rounded-xl"
+                <BlurFade
+                  key={index}
+                  delay={0.25 + index * 0.15}
+                  direction="up"
+                  inView
                 >
-                  <span className="shrink-0 inline-flex justify-center items-center size-9 mt-1 p-2.5 rounded-full bg-blue-50 text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30">
-                    <Info className="size-full" />
-                  </span>
-                  <p>{list}</p>
-                </li>
+                  <li className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:gap-x-5 sm:rounded-xl">
+                    <span className="shrink-0 inline-flex justify-center items-center size-9 mt-1 p-2.5 rounded-full bg-blue-50 text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30">
+                      <Info className="size-full" />
+                    </span>
+                    <p>{list}</p>
+                  </li>
+                </BlurFade>
               ),
             )}
           </ul>
         </section>
 
         <section className="mt-10">
-          <h2 className="scroll-m-20 text-3xl text-base-foreground-100 font-semibold tracking-tight first:mt-0">
+          <TextAnimate
+            animation="blurIn"
+            as="h2"
+            once
+            delay={0.25}
+            className="scroll-m-20 text-3xl text-base-foreground-100 font-semibold tracking-tight first:mt-0"
+          >
             Prosedur Perawatan dan Perbaikan Laboratorium
-          </h2>
+          </TextAnimate>
 
-          <p className="text-base/7 text-base-foreground-300 my-5">
+          <TextAnimate
+            animation="blurInUp"
+            by="character"
+            once
+            delay={0.25}
+            className="text-base/7 text-base-foreground-300 my-5"
+          >
             Prosedur perawatan Lab yang berlaku di Laboratorium Komputer Program
             Studi Teknik Informatika sebagai berikut:
-          </p>
+          </TextAnimate>
 
-          <ul className="text-base/7 text-base-foreground-300 my-6 [&>li]:mt-3">
+          <ul className="text-base/7 text-base-foreground-300 my-6 [&>div]:mt-3">
             {[
               "Laboran mengecek semua peralatan laboratorium setiap bulan",
               "Laboran mengisi form kondisi peralatan laboratorium",
@@ -651,16 +928,23 @@ export default function Page() {
               "Laboran mengecek apakah peralatan tersebut dapat diperbaiki sendiri, bila tidak maka laboran memberitahu dan meminta persetujuan Ketua Laboratorium untuk perbaikan diluar atau mengganti dengan yang baru",
               "Ketua Laboratorium menyetujui dan menandatangani",
               "Surat pengajuan peralatan laboratorium ditujukan kepada Ketua Program Studi Teknik Informatika",
-            ].map((list) => (
-              <li
-                key={list}
-                className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:items-center sm:gap-x-5 sm:rounded-xl"
+            ].map((list, index) => (
+              <BlurFade
+                key={index}
+                delay={0.25 + index * 0.15}
+                direction="up"
+                inView
               >
-                <span className="shrink-0 inline-flex justify-center items-center size-9 mt-1 p-2.5 rounded-full bg-blue-50 text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30">
-                  <SearchCheck className="size-full" />
-                </span>
-                <p>{list}</p>
-              </li>
+                <li
+                  key={list}
+                  className="flex gap-x-3.5 w-full bg-base-50 p-5 border border-base-200 rounded-lg sm:items-center sm:gap-x-5 sm:rounded-xl"
+                >
+                  <span className="shrink-0 inline-flex justify-center items-center size-9 mt-1 p-2.5 rounded-full bg-blue-50 text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30">
+                    <SearchCheck className="size-full" />
+                  </span>
+                  <p>{list}</p>
+                </li>
+              </BlurFade>
             ))}
           </ul>
         </section>

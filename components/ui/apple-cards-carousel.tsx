@@ -19,6 +19,7 @@ import Image, { ImageProps } from "next/image";
 import { Button } from "./button";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 import { Portal } from "../portal";
+import { BlurFade } from "./blur-fade";
 
 interface CarouselProps {
   items: JSX.Element[];
@@ -137,22 +138,26 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
         </div>
 
         <div className="mr-10 flex justify-end gap-2">
-          <Button
-            size="icon-lg"
-            onClick={scrollLeft}
-            className="rounded-full"
-            disabled={!canScrollLeft}
-          >
-            <IconArrowNarrowLeft />
-          </Button>
-          <Button
-            size="icon-lg"
-            onClick={scrollRight}
-            className="rounded-full"
-            disabled={!canScrollRight}
-          >
-            <IconArrowNarrowRight />
-          </Button>
+          <BlurFade delay={0.25} direction="left" inView>
+            <Button
+              size="icon-lg"
+              onClick={scrollLeft}
+              className="rounded-full"
+              disabled={!canScrollLeft}
+            >
+              <IconArrowNarrowLeft />
+            </Button>
+          </BlurFade>
+          <BlurFade delay={0.25} direction="right" inView>
+            <Button
+              size="icon-lg"
+              onClick={scrollRight}
+              className="rounded-full"
+              disabled={!canScrollRight}
+            >
+              <IconArrowNarrowRight />
+            </Button>
+          </BlurFade>
         </div>
       </div>
     </CarouselContext.Provider>
@@ -164,7 +169,7 @@ export const Card = ({
   index,
   layout = false,
   defaultClass = true,
-  className
+  className,
 }: {
   card: Card;
   index: number;
@@ -254,7 +259,11 @@ export const Card = ({
       <motion.button
         layoutId={layout ? `card-${card.title}` : undefined}
         onClick={handleOpen}
-        className={cn(defaultClass ? "relative group z-10 flex h-80 w-56 flex-col items-start justify-start overflow-hidden rounded-xl bg-base-100 md:h-128 md:w-96 md:rounded-3xl" : className)}
+        className={cn(
+          defaultClass
+            ? "relative group z-10 flex h-80 w-56 flex-col items-start justify-start overflow-hidden rounded-xl bg-base-100 md:h-128 md:w-96 md:rounded-3xl"
+            : className,
+        )}
       >
         <div className="pointer-events-none absolute inset-x-0 top-0 z-30 h-full bg-linear-to-b from-static-950/50 group-hover:from-static-950/80 to-transparent transition-colors duration-200" />
         <div className="relative z-40 p-5 md:p-8">
